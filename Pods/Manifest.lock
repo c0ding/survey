@@ -1,0 +1,57 @@
+PODS:
+  - iCarousel (1.8.3)
+  - IQKeyboardManager (3.3.7)
+  - JSONKit (1.5pre)
+  - Masonry (1.0.2)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - MMPopupView (1.7.2):
+    - Masonry
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SDCycleScrollView (1.66):
+    - SDWebImage (~> 4.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SVProgressHUD (2.1.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - iCarousel (~> 1.8.3)
+  - IQKeyboardManager
+  - JSONKit (~> 1.5pre)
+  - Masonry
+  - MBProgressHUD (= 0.9.2)
+  - MJRefresh
+  - MMPopupView
+  - ReactiveCocoa
+  - SDCycleScrollView (~> 1.64)
+  - SDWebImage
+  - SVProgressHUD
+  - YYKit (~> 1.0.9)
+
+SPEC CHECKSUMS:
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  JSONKit: bae313ce6a6c444f40489a6c0b023f399888871f
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MMPopupView: fe1dd010824029dfb632fdf1a531db5dd5386020
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDCycleScrollView: e3ade90e9b3159bec04330b208fbfd81c3f3b671
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: f9a9dcaad9191b727ea4ea92ff73c64b09d1201f
+
+COCOAPODS: 1.2.1

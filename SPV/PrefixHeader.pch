@@ -1,0 +1,61 @@
+//
+//  PrefixHeader.pch
+//  SPV
+//
+//  Created by hejiahuan on 2017/3/2.
+//  Copyright © 2017年 hejiahuan. All rights reserved.
+//
+#define weak(A) __weak typeof(A) w_##A = A;
+#define strong(A) __strong typeof(A) w_##A = A;
+#define blockify(A) __block typeof(A) b_##A = A;
+
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import <UIKit/UIKit.h>
+#import "HJCommon.h"
+#import "HJUICommon.h"
+#import "HJUserDefault.h"
+#import "HJUIDefine.h"
+#import <ReactiveCocoa.h>
+#import "HJUser.h"
+#import "hjdef.h"
+#import "HJRefreshHeader.h"
+#import <SVProgressHUD.h>
+#import "DRBaseNavigationViewController.h"
+#import "JYHColor.h"
+#import "DRSaveAndReadUserDefault.h"
+#import "NSDictionary+EmptyString.h"
+
+
+
+typedef NS_ENUM(NSInteger, homeLabelType)
+{
+    helloLabelType = 0,
+    famousSayingType,
+    famousAuthor,
+    
+};
+
+typedef NS_ENUM(NSInteger, cessionType)
+{
+    cessionTimeType = 0,
+    cessionNameType,
+    
+};
+
+typedef NS_ENUM(NSInteger, receiveType)
+{
+    receiveNowType = 0,
+    receiveWillType,
+    receiveOnRoadType,
+    receivePercentageType
+};
+
+#endif /* PrefixHeader_pch */

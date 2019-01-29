@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>netName</key>
+		<string>开发环境-中权本地</string>
+		<key>netUrl</key>
+		<string>http://192.168.149.33:8082/</string>
+		<key>isCurrent</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>netName</key>
+		<string>提测环境</string>
+		<key>netUrl</key>
+		<string>http://116.62.138.41:8088/</string>
+		<key>isCurrent</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>netName</key>
+		<string>预发布环境</string>
+		<key>netUrl</key>
+		<string>http://121.196.201.245:8083/</string>
+		<key>isCurrent</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>netName</key>
+		<string>正式环境</string>
+		<key>netUrl</key>
+		<string>http://118.31.34.37:8080/</string>
+		<key>isCurrent</key>
+		<false/>
+	</dict>
+</array>
+</plist>

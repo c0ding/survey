@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>question</key>
+		<string>什么是可诉资产？</string>
+		<key>anwser</key>
+        <string>可诉资产包含抵押资产与担保资产，抵押资产由大数据智能算法实时估算当前抵押物价值而成，担保资产为担保现金流；</string>
+	</dict>
+	<dict>
+        <key>question</key>
+		<string>什么是债权增长？</string>
+        <key>anwser</key>
+        <string>债权增长由剩余本金以及每日增长的利息，罚息等累计计算而成；</string>
+	</dict>
+	<dict>
+        <key>question</key>
+        <string>什么是购入价格？</string>
+        <key>anwser</key>
+        <string>购入价格分为资产包购入价格和债权购入价格，资产包购入价格由收购对价、通道费、服务费、其他成本组成，债权购入价格由收购对价组成；</string>
+	</dict>
+	<dict>
+        <key>question</key>
+        <string>风险评级是怎么算的？</string>
+        <key>anwser</key>
+        <string>风险评级是通过可诉资产与债权增长是否可覆盖各时间的购入价格判定而成：
+ S：无债权成本；
+ A+：可覆盖3年以上的购入价格；
+ A：可覆盖1-3年的购入价格；
+ B：可覆盖3个月到1年的购入价格；
+ C：可覆盖1-3个月购入价格；
+ D：小于购入价格；</string>
+	</dict>
+	<dict>
+        <key>question</key>
+        <string>交易策略是怎么判定的？</string>
+        <key>anwser</key>
+        <string>交易策略通过可诉资产是否可覆盖债权增长和购入价格判定而成；
+ 长期：建议长期持有，可诉资产可覆盖3年以上债权增长；
+ 中期：建议中期持有，可诉资产可覆盖1-3年的债权增长；
+ 观望：建议观望可诉资产价值变化，可诉资产仅可覆盖1年内的债权增长；
+ 关注：建议关注可诉资产价值变化，可诉资产无法覆盖债权增长；
+ 出售：建议立即出售，可诉资产无法覆盖购入价格；</string>
+	</dict>
+</array>
+</plist>
