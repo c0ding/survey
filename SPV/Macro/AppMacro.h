@@ -52,7 +52,7 @@
 /*--------------------背景色--------------------*/
 #define DR_BGCOR1 [UIColor colorWithString:@"#1f90e7"] //蓝色
 #define DR_BGCOR2 [UIColor colorWithString:@"#e9f8ff"] //首页按钮选中时的蓝色
-#define DR_BGCOR3 [UIColor colorWithString:@"#f5f5f5"] //浅灰色
+#define DR_BGCOR3 [UIColor colorWithString:@"#FAFAFA"] //浅灰色
 
 #define DR_LIST_SELECTED 0xf7f7f7
 

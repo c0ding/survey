@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+//可偏移的距离
+#define kDistance   (kScreenWidth*0.7333333)
 @interface DRProfileHomeViewController : UIViewController
 
 @end

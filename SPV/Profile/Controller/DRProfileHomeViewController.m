@@ -20,6 +20,9 @@
 #import "DRTermsExplanationViewController.h"
 #import "DRShareView.h"
 
+#import "CWTableViewInfo.h"
+#import "UIViewController+CWLateralSlide.h"
+
 #define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 @interface DRProfileHomeViewController ()<UITableViewDelegate,UITableViewDataSource,LGAlertViewDelegate,DRShareViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
@@ -34,7 +37,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithString:@"#FAFAFA"];
     //监听手机通知状态
     [self initUI];
     [self addObserver];
@@ -46,32 +49,13 @@
     }];
 }
 - (void)initUI {
-    self.tableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    self.tableView.frame = CGRectMake(0, 0, kDistance, [UIScreen mainScreen].bounds.size.height);
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    [self setLayoutHeaderView];
+
     
-    [self createShare];
 }
 
--(void)createShare
-{
-    backView = [UIView new];
-    [self.view addSubview:backView];
-    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.offset(0);
-    }];
-    [backView setBackgroundColor:[UIColor blackColor]];
-    [backView setAlpha:0];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelClick)];
-    [backView addGestureRecognizer:tap];
-    
-    
-    _shareView = [[DRShareView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    _shareView.delegate = self;
-    [self.view addSubview:_shareView];
-    
-}
 
 
 -(void)showShareView
@@ -93,100 +77,9 @@
     }];
 }
 
--(void)clickShareButton:(NSInteger)index
-{
-    UMSocialPlatformType platform = UMSocialPlatformType_WechatSession ;
-    switch (index) {
-        case 0:
-            platform = UMSocialPlatformType_WechatSession;
-            break;
-        case 1:
-            platform = UMSocialPlatformType_WechatTimeLine;
-            break;
-        case 2:
-            platform = UMSocialPlatformType_QQ;
-            break;
-       
-    }
-    
-    [self shareWebPageToPlatformType:platform];
-}
 
 
-- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
-{
-    [self cancelClick];
-    //创建分享消息对象
-    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    //创建网页内容对象
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"智能监测系统 来自 杭州训机智能科技有限公司" descr:@"智能监测是一款向投资人开放的，披露不良资产包基础信息，跟踪资产包处置进度，智能分析利益最大化处置方案的工具型App" thumImage:[UIImage imageNamed:@"iconApp"]];
-    //设置网页地址
-    shareObject.webpageUrl =@"http://appshare.baizeam.com/";
-    //分享消息对象设置分享内容对象
-    messageObject.shareObject = shareObject;
-    //调用分享接口
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-        if (error) {
-            NSLog(@"************Share fail with error %@*********",error);
-            
-            
-            if ([[error.userInfo stringForKey:@"message" ] isEqualToString:@"应用未安装"]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[error.userInfo stringForKey:@"message" ] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            
-        }else{
-            NSLog(@"response data is %@",data);
-            
-        }
-    }];
-}
 
-
-- (void)setLayoutHeaderView {
-    
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kHeight(220))];
-    
-    self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kHeight(220))];
-    self.headImageView.image = [UIImage imageNamed:@"profile_headBg_img"];
-    UILabel *lab = [[UILabel alloc] init] ;
-    self.nameLab = lab;
-    [self.headImageView addSubview:lab];
-    lab.textColor = [UIColor whiteColor];
-    lab.font = [UIFont boldApplicationFontOfSize:font(38)];
-    lab.text = @"";
-    lab.textAlignment = NSTextAlignmentCenter;
-    lab.numberOfLines = 0;
-    
-    [lab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.offset(0);
-        make.width.offset(kWidth(300));
-    }];
-    [headView addSubview:self.headImageView];
-    
-    
-    UIButton *imageBack = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth -50, 0, 40, 40)];
-    [imageBack setImage:[UIImage imageNamed:@"com_close_btn_n"] forState:UIControlStateNormal];
-    [imageBack addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
-    [headView addSubview:imageBack];
-    
-    self.tableView.tableHeaderView = headView;
-
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat yOffset = scrollView.contentOffset.y;
-    
-    if (yOffset < 0) {
-        
-        CGFloat totalOffset = kHeight(220) + ABS(yOffset);
-        CGFloat f = totalOffset / kHeight(220);
-        _headImageView.frame = CGRectMake(- (width * f - width) / 2, yOffset, width * f, totalOffset);
-    }
-    
-}
 
 #pragma mark -
 #pragma mark 网络
@@ -241,8 +134,28 @@
 #pragma mark -
 #pragma mark 代理
 #pragma mark === TableView
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return kHeight(157);
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    UILabel *label = [[UILabel alloc] init];
+    [view addSubview:label];
+    label.text = @"王松";
+    label.font = [UIFont fontWithName:@"PingFangSC-Medium" size:font(17)];
+    label.textColor = RGB(38, 35, 30);
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(kHeight(30));
+        make.left.offset(kWidth(16));
+    }];
+    
+    return view;
+    
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  5;
+    return  3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -269,17 +182,7 @@
             cell.leftLab.text = @"关于我们";
             break;
         }
-        case 3:{
-            cell.leftLab.text = @"用户反馈";
-            break;
-        }
-        
-        case 4:{
-            cell.leftLab.text = @"分享App";
-            break;
-        }
-        default:
-            break;
+       
     }
     return cell;
 }
@@ -328,24 +231,12 @@
             break;
         }
         case 1:{
-//            DRTermsExplanationViewController *nextVC = [[DRTermsExplanationViewController alloc] init];
-//            [self.navigationController pushViewController:nextVC animated:YES];
-            
             [self clearCache];
             break;
         }
         case 2:{
             DRAboutUsViewController *nextVC = [[DRAboutUsViewController alloc] init];
             [self.navigationController pushViewController:nextVC animated:YES];
-            break;
-        }
-        case 3:{
-            DRUserFeedbackViewController *nextVC = [[DRUserFeedbackViewController alloc] init];
-            [self.navigationController pushViewController:nextVC animated:YES];
-            break;
-        }
-        case 4:{
-            [self showShareView];
             break;
         }
         
@@ -462,8 +353,8 @@
         _tableView.dataSource = self;
         _tableView.backgroundColor = DR_BGCOR3;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
-        _tableView.rowHeight = kHeight(64);
-        _tableView.sectionFooterHeight = kHeight(167);
+        _tableView.rowHeight = kHeight(52);
+        _tableView.sectionFooterHeight = kHeight(351);
         
         [self.view addSubview:_tableView];
     }
@@ -471,16 +362,6 @@
 }
 
 
--(void)backConroller {
-    CATransition* transition = [CATransition animation];
-    transition.type = kCATransitionPush;//可更改为其他方式
-    transition.subtype = kCATransitionFromRight;//可更改为其他方式
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-}
-
--(void)backClick {
-    [[self sliderViewController] hideLeft];
-}
 
 
 @end

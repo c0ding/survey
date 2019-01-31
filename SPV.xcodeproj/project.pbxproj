@@ -98,6 +98,15 @@
 		54C1626720BF99A000EA87F8 /* LHEnvManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C1626020BF999F00EA87F8 /* LHEnvManager.m */; };
 		54C1626820BF99A000EA87F8 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C1626120BF999F00EA87F8 /* UIActionSheet+Blocks.m */; };
 		54C1626920BF99A000EA87F8 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C1626320BF999F00EA87F8 /* UIAlertView+Blocks.m */; };
+		54C47FCD2202C38300E7C99F /* DRHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FCB2202C38300E7C99F /* DRHomeVC.m */; };
+		54C47FD92202C38F00E7C99F /* CWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FCF2202C38F00E7C99F /* CWInteractiveTransition.m */; };
+		54C47FDA2202C38F00E7C99F /* UIViewController+CWLateralSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FD22202C38F00E7C99F /* UIViewController+CWLateralSlide.m */; };
+		54C47FDB2202C38F00E7C99F /* CWLateralSlideAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FD52202C38F00E7C99F /* CWLateralSlideAnimator.m */; };
+		54C47FDC2202C38F00E7C99F /* CWDrawerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FD62202C38F00E7C99F /* CWDrawerTransition.m */; };
+		54C47FDD2202C38F00E7C99F /* CWLateralSlideConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FD82202C38F00E7C99F /* CWLateralSlideConfiguration.m */; };
+		54C47FE52202CA2000E7C99F /* CWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FDF2202CA1F00E7C99F /* CWTableViewCell.m */; };
+		54C47FE62202CA2000E7C99F /* CWTableViewCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FE12202CA1F00E7C99F /* CWTableViewCellInfo.m */; };
+		54C47FE72202CA2000E7C99F /* CWTableViewInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C47FE32202CA1F00E7C99F /* CWTableViewInfo.m */; };
 		54D8F3871FFA44E300B1640C /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F3851FFA44E300B1640C /* NullSafe.m */; };
 		54DDD8371F56991C00446089 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DDD8141F56991C00446089 /* AFHTTPSessionManager.m */; };
 		54DDD8381F56991C00446089 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DDD8171F56991C00446089 /* AFNetworkReachabilityManager.m */; };
@@ -436,6 +445,24 @@
 		54C1626120BF999F00EA87F8 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		54C1626220BF999F00EA87F8 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
 		54C1626320BF999F00EA87F8 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		54C47FCB2202C38300E7C99F /* DRHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRHomeVC.m; sourceTree = "<group>"; };
+		54C47FCC2202C38300E7C99F /* DRHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRHomeVC.h; sourceTree = "<group>"; };
+		54C47FCF2202C38F00E7C99F /* CWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWInteractiveTransition.m; sourceTree = "<group>"; };
+		54C47FD02202C38F00E7C99F /* CWDrawerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDrawerTransition.h; sourceTree = "<group>"; };
+		54C47FD12202C38F00E7C99F /* CWLateralSlideAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideAnimator.h; sourceTree = "<group>"; };
+		54C47FD22202C38F00E7C99F /* UIViewController+CWLateralSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWLateralSlide.m"; sourceTree = "<group>"; };
+		54C47FD32202C38F00E7C99F /* CWLateralSlideConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideConfiguration.h; sourceTree = "<group>"; };
+		54C47FD42202C38F00E7C99F /* CWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInteractiveTransition.h; sourceTree = "<group>"; };
+		54C47FD52202C38F00E7C99F /* CWLateralSlideAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideAnimator.m; sourceTree = "<group>"; };
+		54C47FD62202C38F00E7C99F /* CWDrawerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWDrawerTransition.m; sourceTree = "<group>"; };
+		54C47FD72202C38F00E7C99F /* UIViewController+CWLateralSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWLateralSlide.h"; sourceTree = "<group>"; };
+		54C47FD82202C38F00E7C99F /* CWLateralSlideConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideConfiguration.m; sourceTree = "<group>"; };
+		54C47FDF2202CA1F00E7C99F /* CWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWTableViewCell.m; sourceTree = "<group>"; };
+		54C47FE02202CA1F00E7C99F /* CWTableViewInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableViewInfo.h; sourceTree = "<group>"; };
+		54C47FE12202CA1F00E7C99F /* CWTableViewCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWTableViewCellInfo.m; sourceTree = "<group>"; };
+		54C47FE22202CA1F00E7C99F /* CWTableViewCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableViewCellInfo.h; sourceTree = "<group>"; };
+		54C47FE32202CA1F00E7C99F /* CWTableViewInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWTableViewInfo.m; sourceTree = "<group>"; };
+		54C47FE42202CA1F00E7C99F /* CWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableViewCell.h; sourceTree = "<group>"; };
 		54D8F3851FFA44E300B1640C /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		54DDD8131F56991C00446089 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		54DDD8141F56991C00446089 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -1013,6 +1040,71 @@
 			path = NetEnvironmentConfig;
 			sourceTree = "<group>";
 		};
+		54C47FC32202C14E00E7C99F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				54C47FCA2202C38300E7C99F /* controller */,
+				54C47FC82202C38300E7C99F /* model */,
+				54C47FC92202C38300E7C99F /* view */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		54C47FC82202C38300E7C99F /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		54C47FC92202C38300E7C99F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				54C47FDE2202CA1F00E7C99F /* TableViewWidget */,
+				54C47FCE2202C38F00E7C99F /* CWLateralSlide */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		54C47FCA2202C38300E7C99F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				54C47FCC2202C38300E7C99F /* DRHomeVC.h */,
+				54C47FCB2202C38300E7C99F /* DRHomeVC.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		54C47FCE2202C38F00E7C99F /* CWLateralSlide */ = {
+			isa = PBXGroup;
+			children = (
+				54C47FCF2202C38F00E7C99F /* CWInteractiveTransition.m */,
+				54C47FD02202C38F00E7C99F /* CWDrawerTransition.h */,
+				54C47FD12202C38F00E7C99F /* CWLateralSlideAnimator.h */,
+				54C47FD22202C38F00E7C99F /* UIViewController+CWLateralSlide.m */,
+				54C47FD32202C38F00E7C99F /* CWLateralSlideConfiguration.h */,
+				54C47FD42202C38F00E7C99F /* CWInteractiveTransition.h */,
+				54C47FD52202C38F00E7C99F /* CWLateralSlideAnimator.m */,
+				54C47FD62202C38F00E7C99F /* CWDrawerTransition.m */,
+				54C47FD72202C38F00E7C99F /* UIViewController+CWLateralSlide.h */,
+				54C47FD82202C38F00E7C99F /* CWLateralSlideConfiguration.m */,
+			);
+			path = CWLateralSlide;
+			sourceTree = "<group>";
+		};
+		54C47FDE2202CA1F00E7C99F /* TableViewWidget */ = {
+			isa = PBXGroup;
+			children = (
+				54C47FE42202CA1F00E7C99F /* CWTableViewCell.h */,
+				54C47FDF2202CA1F00E7C99F /* CWTableViewCell.m */,
+				54C47FE22202CA1F00E7C99F /* CWTableViewCellInfo.h */,
+				54C47FE12202CA1F00E7C99F /* CWTableViewCellInfo.m */,
+				54C47FE02202CA1F00E7C99F /* CWTableViewInfo.h */,
+				54C47FE32202CA1F00E7C99F /* CWTableViewInfo.m */,
+			);
+			path = TableViewWidget;
+			sourceTree = "<group>";
+		};
 		54DDD8111F56991C00446089 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1526,6 +1618,7 @@
 		A1F62A721E65123600FB0032 /* SPV */ = {
 			isa = PBXGroup;
 			children = (
+				54C47FC32202C14E00E7C99F /* Home */,
 				54C1625A20BF999F00EA87F8 /* NetEnvironmentConfig */,
 				54906A4B2006FCCE0040254E /* GuidePage */,
 				5441B5CE1FD934B900FC3380 /* Profile */,
@@ -1859,6 +1952,8 @@
 				54DDD8711F56993000446089 /* HJRequestDefine.m in Sources */,
 				549FC6061FEA71C700E88043 /* ColorView.m in Sources */,
 				54DDD8381F56991C00446089 /* AFNetworkReachabilityManager.m in Sources */,
+				54C47FE52202CA2000E7C99F /* CWTableViewCell.m in Sources */,
+				54C47FCD2202C38300E7C99F /* DRHomeVC.m in Sources */,
 				549815921F628C1F00DA0A9D /* Reachability.m in Sources */,
 				5441B6261FDA34B500FC3380 /* DRAboutUsViewController.m in Sources */,
 				A1F560981E66608D0089114D /* HJPieView.m in Sources */,
@@ -1885,6 +1980,7 @@
 				7AC05F1A1EA8F2C800A2FCBD /* UIImage+Extension.m in Sources */,
 				54DDD85E1F56992600446089 /* FMResultSet.m in Sources */,
 				54DDD8591F56992600446089 /* README.markdown in Sources */,
+				54C47FDA2202C38F00E7C99F /* UIViewController+CWLateralSlide.m in Sources */,
 				54DDD83A1F56991C00446089 /* AFURLRequestSerialization.m in Sources */,
 				549FC5FB1FEA25F800E88043 /* DRLoginBtnView.m in Sources */,
 				54DDD8421F56991C00446089 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -1920,6 +2016,7 @@
 				54DDD8401F56991C00446089 /* AFImageDownloader.m in Sources */,
 				5441B6231FDA231E00FC3380 /* DRUserFeedbackViewController.m in Sources */,
 				A14232191E790FE900AF0EA5 /* UIView+round.m in Sources */,
+				54C47FDB2202C38F00E7C99F /* CWLateralSlideAnimator.m in Sources */,
 				A12CA9D71E67BCD200ADC3C1 /* HJUICommon.m in Sources */,
 				54758D9F20B4134A0009ACC4 /* DRPhoneTextView.m in Sources */,
 				7AC05F191EA8F2C800A2FCBD /* UIFontEX.m in Sources */,
@@ -1936,6 +2033,7 @@
 				54801F4B20A3E85200E91330 /* DRDialogueCell.m in Sources */,
 				546A2B8A1FEB60D200A1687B /* DRPersonalCenterModel.m in Sources */,
 				54DDD8731F56993000446089 /* HJDataCenter.m in Sources */,
+				54C47FE62202CA2000E7C99F /* CWTableViewCellInfo.m in Sources */,
 				540D22A91EC206C700C2410E /* LGAlertViewCell.m in Sources */,
 				542A54D420A98DC100787C50 /* DRRegisterPhoneView.m in Sources */,
 				54C1626720BF99A000EA87F8 /* LHEnvManager.m in Sources */,
@@ -1966,7 +2064,9 @@
 				5441B6161FD9375C00FC3380 /* DRProfileHomeViewController.m in Sources */,
 				54FD39C51F0DC8E1004BC351 /* FCUUID.m in Sources */,
 				54DDD8911F56993900446089 /* MJExtensionConst.m in Sources */,
+				54C47FE72202CA2000E7C99F /* CWTableViewInfo.m in Sources */,
 				54DDD83E1F56991C00446089 /* README.md in Sources */,
+				54C47FDD2202C38F00E7C99F /* CWLateralSlideConfiguration.m in Sources */,
 				54A161801FFF92530037AD79 /* DRTermsExplanationViewController.m in Sources */,
 				5441B61D1FD9531D00FC3380 /* DRProfileHomeCell.m in Sources */,
 				54DDD8941F56993900446089 /* MJPropertyKey.m in Sources */,
@@ -1984,12 +2084,14 @@
 				54DDD8991F56993900446089 /* NSObject+MJProperty.m in Sources */,
 				5428FE02201B06BA000D0742 /* DRGuidePageSecond.m in Sources */,
 				549FC5FE1FEA46D800E88043 /* ColorButton.m in Sources */,
+				54C47FDC2202C38F00E7C99F /* CWDrawerTransition.m in Sources */,
 				C2F10FB81FE74BD900C5D34E /* UIViewController+ZYSliderViewController.m in Sources */,
 				54E8DAAF1FD791EE002ADDAB /* MBManager.m in Sources */,
 				7A0484F61EB30776006C159E /* UIBarButtonItem+Extension.m in Sources */,
 				54E7BF991ED3D9E7009C9E79 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				54E7BF981ED3D9E7009C9E79 /* UITableView+HYBCacheHeight.m in Sources */,
 				7AD1A3E21EB8C14700C2F474 /* ZZProgressView.m in Sources */,
+				54C47FD92202C38F00E7C99F /* CWInteractiveTransition.m in Sources */,
 				A1F7D10D1E68FFF800D3E5FF /* HJUser.m in Sources */,
 				54DDD85C1F56992600446089 /* FMDatabasePool.m in Sources */,
 				7AD1A3E51EB8C18000C2F474 /* UIView+FMKit.m in Sources */,

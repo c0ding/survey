@@ -22,10 +22,10 @@
 //    // 禁用右滑切换
 //    self.interactivePopGestureRecognizer.enabled = YES;
 //    // 设置Bar背景色
-    [self.navigationBar setTintColor:[UIColor whiteColor]];
-//    // 设置Bar不透明
-    [self.navigationBar setTranslucent:NO];
-    self.navigationBarHidden = YES;
+//    [self.navigationBar setTintColor:[UIColor whiteColor]];
+////    // 设置Bar不透明
+//    [self.navigationBar setTranslucent:NO];
+//    self.navigationBarHidden = YES;
     
 }
 

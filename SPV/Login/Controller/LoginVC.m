@@ -30,9 +30,8 @@
     [self setupUI];
     // 切换环境
     [self netConfig];
-    
-    
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserver];

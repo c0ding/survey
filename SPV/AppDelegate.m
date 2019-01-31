@@ -1,4 +1,4 @@
- 
+
 //
 //  AppDelegate.m
 //  SPV
@@ -19,7 +19,7 @@
 #import "XTGuidePagesViewController.h"
 
 
-
+#import "DRHomeVC.h"
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 
@@ -78,8 +78,6 @@
     [self.window makeKeyAndVisible];
     
     
-    NSDictionary *navTitleArr =[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:font(17)],UITextAttributeFont,nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:navTitleArr];
     
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
@@ -88,14 +86,30 @@
     [IQKeyboardManager sharedManager].preventShowingBottomBlankSpace = NO; //防止上滑过渡，离得太远
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
+
+    
+    //    NSDictionary *navTitleArr =[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:font(17)],UITextAttributeFont,nil];
+    //    [[UINavigationBar appearance] setTitleTextAttributes:navTitleArr];
     //设置通知
-    [self setupNotificationSettingsWithOptions:launchOptions];
-    [UMConfigure initWithAppkey:@"5a94b8e18f4a9d4934000099" channel:@"App Store"];
-    [self configUSharePlatforms];
-    [self confitUShareSettings];
+    //    [self setupNotificationSettingsWithOptions:launchOptions];
+    //    [UMConfigure initWithAppkey:@"5a94b8e18f4a9d4934000099" channel:@"App Store"];
+    //    [self configUSharePlatforms];
+    //    [self confitUShareSettings];
     
     return YES;
 }
+
+
+- (void)clickEnter {
+    
+    
+    DRHomeVC *homeVC = [[DRHomeVC alloc] init];
+    DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = baseNav;
+    
+}
+
+
 
 // UShare
 - (void)confitUShareSettings
@@ -136,20 +150,6 @@
     return result;
 }
 
-
-- (void)clickEnter {
-    LoginVC *loginVC=[[LoginVC alloc] init];
-//    DRRealHomeViewController *nav = [[DRRealHomeViewController alloc]init];
-//    DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:nav];
-//    DRProfileHomeViewController *profile = [[DRProfileHomeViewController alloc] init];
-//    DRBaseNavigationViewController *baseprofile = [[DRBaseNavigationViewController alloc] initWithRootViewController:profile];
-//    ZYSliderViewController *sliderVC = [[ZYSliderViewController alloc] initWithMainViewController:baseNav leftViewController:baseprofile rightViewController:nil];
-//
-//    [self.window.layer transitionWithAnimType:TransitionAnimTypeReveal subType:TransitionSubtypesFromRight curve:TransitionCurveEaseInEaseOut duration:0.3f];
-//
-    self.window.rootViewController = loginVC;
-    
-}
 
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
