@@ -16,6 +16,7 @@
 #import "CALayer+Transition.h"
 #import "IQKeyboardManager.h"
 #import "LHEnvManager.h"
+#import "DRHomeVC.h"
 #define kUserName @"kUserName"
 #define kUserPhone @"kUserPhone"
 @interface LoginVC ()<LoginViewDelegate>
@@ -24,6 +25,13 @@
 @end
 
 @implementation LoginVC
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    DRHomeVC *homeVC = [[DRHomeVC alloc] init];
+    DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
+    [UIApplication sharedApplication].keyWindow.rootViewController = baseNav;
+    
+//    [self presentViewController:baseNav animated:NO completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

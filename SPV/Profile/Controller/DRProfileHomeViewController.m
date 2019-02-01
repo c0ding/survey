@@ -109,6 +109,22 @@
 
 #pragma mark === 登出
 - (void)logoutEngine {
+    //    [self cw_presentViewController:loginVC];
+    LoginVC *loginVC=[[LoginVC alloc] init];
+    
+    [self presentViewController:loginVC animated:YES completion:^{
+        
+    }];
+
+
+    
+    
+    
+    
+//    [self dismissViewControllerAnimated:NO completion:nil];
+
+    //    [self presentViewController:loginVC animated:NO completion:nil];
+    
 //    LoginVC *loginVC=[LoginVC new];
 //    [self.navigationController presentViewController:loginVC animated:NO completion:nil];
     

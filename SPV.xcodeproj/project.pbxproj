@@ -30,8 +30,6 @@
 		5422BD6B1F60D45C0046A7D4 /* UIViewController+MAC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422BD6A1F60D45C0046A7D4 /* UIViewController+MAC.m */; };
 		5428FE02201B06BA000D0742 /* DRGuidePageSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428FE01201B06BA000D0742 /* DRGuidePageSecond.m */; };
 		5428FE06201B13BA000D0742 /* DRGuidePageThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428FE05201B13BA000D0742 /* DRGuidePageThird.m */; };
-		542A54C120A91F7B00787C50 /* DRInviteCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542A54C020A91F7B00787C50 /* DRInviteCodeModel.m */; };
-		542A54D020A95B4A00787C50 /* DRAddUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542A54CF20A95B4A00787C50 /* DRAddUserModel.m */; };
 		542A54D420A98DC100787C50 /* DRRegisterPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542A54D320A98DC100787C50 /* DRRegisterPhoneView.m */; };
 		542AC34C1FE2635A0070CE5F /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AC34A1FE2635A0070CE5F /* AMapFoundationKit.framework */; };
 		542AC34D1FE2635A0070CE5F /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AC34B1FE2635A0070CE5F /* MAMapKit.framework */; };
@@ -75,7 +73,6 @@
 		547B95061FDE1B9600038B68 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 547B95021FDE1B9100038B68 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		547D952420A5395C00A355DA /* DRVerifyCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D952320A5395C00A355DA /* DRVerifyCodeButton.m */; };
 		547D952B20A5641E00A355DA /* DRInviteCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D952A20A5641E00A355DA /* DRInviteCodeView.m */; };
-		547D952E20A56E4500A355DA /* DRGetSmsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D952D20A56E4500A355DA /* DRGetSmsModel.m */; };
 		54801F4B20A3E85200E91330 /* DRDialogueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54801F4A20A3E85200E91330 /* DRDialogueCell.m */; };
 		54906A522006FCCE0040254E /* CALayer+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A4E2006FCCE0040254E /* CALayer+Transition.m */; };
 		54906A532006FCCE0040254E /* XTGuidePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A502006FCCE0040254E /* XTGuidePagesViewController.m */; };
@@ -322,10 +319,6 @@
 		5428FE01201B06BA000D0742 /* DRGuidePageSecond.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGuidePageSecond.m; sourceTree = "<group>"; };
 		5428FE04201B13BA000D0742 /* DRGuidePageThird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRGuidePageThird.h; sourceTree = "<group>"; };
 		5428FE05201B13BA000D0742 /* DRGuidePageThird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGuidePageThird.m; sourceTree = "<group>"; };
-		542A54BF20A91F7B00787C50 /* DRInviteCodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRInviteCodeModel.h; sourceTree = "<group>"; };
-		542A54C020A91F7B00787C50 /* DRInviteCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRInviteCodeModel.m; sourceTree = "<group>"; };
-		542A54CE20A95B4A00787C50 /* DRAddUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRAddUserModel.h; sourceTree = "<group>"; };
-		542A54CF20A95B4A00787C50 /* DRAddUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRAddUserModel.m; sourceTree = "<group>"; };
 		542A54D220A98DC100787C50 /* DRRegisterPhoneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRRegisterPhoneView.h; sourceTree = "<group>"; };
 		542A54D320A98DC100787C50 /* DRRegisterPhoneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRRegisterPhoneView.m; sourceTree = "<group>"; };
 		542AC34A1FE2635A0070CE5F /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = ThirdLibs/AMapFoundationKit.framework; sourceTree = "<group>"; };
@@ -397,8 +390,6 @@
 		547D952320A5395C00A355DA /* DRVerifyCodeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRVerifyCodeButton.m; sourceTree = "<group>"; };
 		547D952920A5641E00A355DA /* DRInviteCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRInviteCodeView.h; sourceTree = "<group>"; };
 		547D952A20A5641E00A355DA /* DRInviteCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRInviteCodeView.m; sourceTree = "<group>"; };
-		547D952C20A56E4500A355DA /* DRGetSmsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRGetSmsModel.h; sourceTree = "<group>"; };
-		547D952D20A56E4500A355DA /* DRGetSmsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGetSmsModel.m; sourceTree = "<group>"; };
 		54801F4920A3E85200E91330 /* DRDialogueCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDialogueCell.h; sourceTree = "<group>"; };
 		54801F4A20A3E85200E91330 /* DRDialogueCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDialogueCell.m; sourceTree = "<group>"; };
 		54906A4D2006FCCE0040254E /* CALayer+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Transition.h"; sourceTree = "<group>"; };
@@ -908,12 +899,6 @@
 			children = (
 				546A2B811FEB568200A1687B /* DRLoginModel.h */,
 				546A2B821FEB568200A1687B /* DRLoginModel.m */,
-				547D952C20A56E4500A355DA /* DRGetSmsModel.h */,
-				547D952D20A56E4500A355DA /* DRGetSmsModel.m */,
-				542A54BF20A91F7B00787C50 /* DRInviteCodeModel.h */,
-				542A54C020A91F7B00787C50 /* DRInviteCodeModel.m */,
-				542A54CE20A95B4A00787C50 /* DRAddUserModel.h */,
-				542A54CF20A95B4A00787C50 /* DRAddUserModel.m */,
 				544E5B3520B80AF000FA58C1 /* DRUpdateVersionModel.h */,
 				544E5B3620B80AF000FA58C1 /* DRUpdateVersionModel.m */,
 			);
@@ -1992,7 +1977,6 @@
 				54DDD83C1F56991C00446089 /* AFURLSessionManager.m in Sources */,
 				54C1626520BF99A000EA87F8 /* RIButtonItem.m in Sources */,
 				5422BD681F60D2580046A7D4 /* UIImage+Additions.m in Sources */,
-				547D952E20A56E4500A355DA /* DRGetSmsModel.m in Sources */,
 				54758DA320B4135E0009ACC4 /* DRPwdTextView.m in Sources */,
 				546A2B831FEB568200A1687B /* DRLoginModel.m in Sources */,
 				A1F560991E66608D0089114D /* NSTimer+timerBlock.m in Sources */,
@@ -2098,7 +2082,6 @@
 				5498159B1F62906F00DA0A9D /* NetworkUnit.m in Sources */,
 				54DDD8461F56991C00446089 /* UIRefreshControl+AFNetworking.m in Sources */,
 				54565BC42019D5160023CBA0 /* DRGuidePageFirst.m in Sources */,
-				542A54D020A95B4A00787C50 /* DRAddUserModel.m in Sources */,
 				C26C74D82045424300FE4E6F /* SecondTransition.m in Sources */,
 				54DDD8471F56991C00446089 /* UIWebView+AFNetworking.m in Sources */,
 				C2B7CCA31FDAA5FB009F201C /* DRHaveSmall.m in Sources */,
@@ -2106,7 +2089,6 @@
 				54DDD83B1F56991C00446089 /* AFURLResponseSerialization.m in Sources */,
 				54B849911FF61F7800B39926 /* DRPlaceholderView.m in Sources */,
 				54DDD8971F56993900446089 /* NSObject+MJCoding.m in Sources */,
-				542A54C120A91F7B00787C50 /* DRInviteCodeModel.m in Sources */,
 				54DDD85D1F56992600446089 /* FMDatabaseQueue.m in Sources */,
 				54DDD8761F56993000446089 /* README.md in Sources */,
 			);
