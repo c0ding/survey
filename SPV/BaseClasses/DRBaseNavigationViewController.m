@@ -27,6 +27,15 @@
 //    [self.navigationBar setTranslucent:NO];
 //    self.navigationBarHidden = YES;
     
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:18]; // 字体大小
+//    attrs[NSForegroundColorAttributeName] = [UIColor blackColor]; // 颜色
+//    
+//    UINavigationBar *naviBar = [UINavigationBar appearance];
+//    [naviBar setTitleTextAttributes:attrs];
+//    // 解决iOS11界面缩放后导航栏空出状态栏的空隙的问题 方法1
+//    [naviBar setBackgroundImage:[UIImage imageNamed:@"yitiji_date_nav_bg"] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 

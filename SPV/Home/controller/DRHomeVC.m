@@ -9,11 +9,15 @@
 #import "DRHomeVC.h"
 #import "UIViewController+CWLateralSlide.h"
 #import "DRProfileHomeViewController.h"
+#import "LoginVC.h"
 @interface DRHomeVC ()
 @property (nonatomic,strong) DRProfileHomeViewController *profileHomeVC;
+@property (nonatomic,strong) LoginVC *loginVC;
 @end
 
 @implementation DRHomeVC
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +33,38 @@
         }
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutAlert) name:kLogout object:nil];
+
+}
+
+
+#pragma mark === 登出提示
+- (void)logoutAlert {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"显示的标题" message:@"标题的提示信息" preferredStyle:UIAlertControllerStyleAlert];
+
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击取消");
+        
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self logout];
+    }]];
+    
+    
+     [self presentViewController:alertController animated:YES completion:nil];
+    
+
+}
+
+- (void)logout {
+    if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else {
+        [UIApplication sharedApplication].keyWindow.rootViewController = self.loginVC;
+    }
 }
 
 - (void)maskAnimationFromRight {
@@ -49,4 +85,10 @@
 
 
 
+- (LoginVC *)loginVC {
+    if (!_loginVC) {
+        _loginVC = [[LoginVC alloc] init];
+    }
+    return _loginVC;
+}
 @end

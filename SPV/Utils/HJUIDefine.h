@@ -115,7 +115,10 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 //基于6的适配
 #define kWidth(R) (R)*(kScreenWidth)/375
-#define kHeight(R) (iPhone10?((R)*(kScreenHeight)/667):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
+//#define kHeight(R) (iPhone10?((R)*(kScreenHeight)/667):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
+
+#define kHeight(R) (iPhone10?((R)*(kScreenHeight)/812):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
+
 #define font(R) (R)*(kScreenWidth)/375
 #define kFONT16   [UIFont systemFontOfSize:font(16.0f)]
 

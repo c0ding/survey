@@ -21,16 +21,16 @@
 		540D22AE1EC206C700C2410E /* LGAlertViewWindowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 540D22A11EC206C700C2410E /* LGAlertViewWindowContainer.m */; };
 		540D22AF1EC206C700C2410E /* LGAlertViewWindowsObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 540D22A31EC206C700C2410E /* LGAlertViewWindowsObserver.m */; };
 		540D22B01EC206C700C2410E /* UIWindow+LGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 540D22A51EC206C700C2410E /* UIWindow+LGAlertView.m */; };
+		54148179221254FC0075B927 /* TopAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 54148177221254FC0075B927 /* TopAlert.m */; };
+		5414817C22125A900075B927 /* DRLoginFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5414817B22125A900075B927 /* DRLoginFormView.m */; };
 		541A9C7B1FE13E3600EB2F44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A9C7A1FE13E3600EB2F44 /* Security.framework */; };
 		541A9C7D1FE13E4700EB2F44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A9C7C1FE13E4700EB2F44 /* CoreGraphics.framework */; };
 		541A9C7F1FE13E6200EB2F44 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A9C7E1FE13E6200EB2F44 /* OpenGLES.framework */; };
 		541A9C811FE13E6F00EB2F44 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A9C801FE13E6E00EB2F44 /* QuartzCore.framework */; };
-		542292DC20AA858000A31650 /* DRRegisterNicknameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542292DB20AA858000A31650 /* DRRegisterNicknameView.m */; };
 		5422BD681F60D2580046A7D4 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422BD671F60D2580046A7D4 /* UIImage+Additions.m */; };
 		5422BD6B1F60D45C0046A7D4 /* UIViewController+MAC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422BD6A1F60D45C0046A7D4 /* UIViewController+MAC.m */; };
 		5428FE02201B06BA000D0742 /* DRGuidePageSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428FE01201B06BA000D0742 /* DRGuidePageSecond.m */; };
 		5428FE06201B13BA000D0742 /* DRGuidePageThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428FE05201B13BA000D0742 /* DRGuidePageThird.m */; };
-		542A54D420A98DC100787C50 /* DRRegisterPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542A54D320A98DC100787C50 /* DRRegisterPhoneView.m */; };
 		542AC34C1FE2635A0070CE5F /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AC34A1FE2635A0070CE5F /* AMapFoundationKit.framework */; };
 		542AC34D1FE2635A0070CE5F /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AC34B1FE2635A0070CE5F /* MAMapKit.framework */; };
 		542AC3561FE264330070CE5F /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AC3551FE264330070CE5F /* GLKit.framework */; };
@@ -54,7 +54,6 @@
 		544E5B3720B80AF000FA58C1 /* DRUpdateVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 544E5B3620B80AF000FA58C1 /* DRUpdateVersionModel.m */; };
 		544F5EC42106BDFA002F7EEC /* DRUpdateVersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544F5EC32106BDFA002F7EEC /* DRUpdateVersionView.m */; };
 		54565BC42019D5160023CBA0 /* DRGuidePageFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 54565BC32019D5160023CBA0 /* DRGuidePageFirst.m */; };
-		5465CA8F20B64F1C00DD6A81 /* DRRegisterUsernameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5465CA8E20B64F1C00DD6A81 /* DRRegisterUsernameView.m */; };
 		5465D3181EEFDB8C00AD910B /* ZZNullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5465D3171EEFDB8C00AD910B /* ZZNullView.m */; };
 		5467E3B41F024FCE00D73091 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5467E3B21F024FCE00D73091 /* libUMessage_Sdk_1.5.0a.a */; };
 		5467E3B61F02502F00D73091 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5467E3B51F02502F00D73091 /* UserNotifications.framework */; };
@@ -67,12 +66,8 @@
 		5473D22620A2C7B200A40382 /* IntelligentControlInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5473D22520A2C7B200A40382 /* IntelligentControlInstructions.plist */; };
 		5473D22A20A2E29000A40382 /* DRIntelligentAnalysisQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5473D22920A2E29000A40382 /* DRIntelligentAnalysisQuestionView.m */; };
 		5473D23020A2F35E00A40382 /* DRIntelligentAnalysisQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5473D22F20A2F35E00A40382 /* DRIntelligentAnalysisQuestionModel.m */; };
-		54758D9F20B4134A0009ACC4 /* DRPhoneTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54758D9E20B4134A0009ACC4 /* DRPhoneTextView.m */; };
-		54758DA320B4135E0009ACC4 /* DRPwdTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54758DA220B4135E0009ACC4 /* DRPwdTextView.m */; };
 		547B95051FDE1B9600038B68 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547B95021FDE1B9100038B68 /* Charts.framework */; };
 		547B95061FDE1B9600038B68 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 547B95021FDE1B9100038B68 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		547D952420A5395C00A355DA /* DRVerifyCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D952320A5395C00A355DA /* DRVerifyCodeButton.m */; };
-		547D952B20A5641E00A355DA /* DRInviteCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D952A20A5641E00A355DA /* DRInviteCodeView.m */; };
 		54801F4B20A3E85200E91330 /* DRDialogueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54801F4A20A3E85200E91330 /* DRDialogueCell.m */; };
 		54906A522006FCCE0040254E /* CALayer+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A4E2006FCCE0040254E /* CALayer+Transition.m */; };
 		54906A532006FCCE0040254E /* XTGuidePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A502006FCCE0040254E /* XTGuidePagesViewController.m */; };
@@ -305,12 +300,14 @@
 		540D22A31EC206C700C2410E /* LGAlertViewWindowsObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGAlertViewWindowsObserver.m; sourceTree = "<group>"; };
 		540D22A41EC206C700C2410E /* UIWindow+LGAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+LGAlertView.h"; sourceTree = "<group>"; };
 		540D22A51EC206C700C2410E /* UIWindow+LGAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LGAlertView.m"; sourceTree = "<group>"; };
+		54148176221254FC0075B927 /* TopAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAlert.h; sourceTree = "<group>"; };
+		54148177221254FC0075B927 /* TopAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAlert.m; sourceTree = "<group>"; };
+		5414817A22125A900075B927 /* DRLoginFormView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRLoginFormView.h; sourceTree = "<group>"; };
+		5414817B22125A900075B927 /* DRLoginFormView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRLoginFormView.m; sourceTree = "<group>"; };
 		541A9C7A1FE13E3600EB2F44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		541A9C7C1FE13E4700EB2F44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		541A9C7E1FE13E6200EB2F44 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		541A9C801FE13E6E00EB2F44 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		542292DA20AA858000A31650 /* DRRegisterNicknameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRRegisterNicknameView.h; sourceTree = "<group>"; };
-		542292DB20AA858000A31650 /* DRRegisterNicknameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRRegisterNicknameView.m; sourceTree = "<group>"; };
 		5422BD661F60D2580046A7D4 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		5422BD671F60D2580046A7D4 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		5422BD691F60D45C0046A7D4 /* UIViewController+MAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MAC.h"; sourceTree = "<group>"; };
@@ -319,8 +316,6 @@
 		5428FE01201B06BA000D0742 /* DRGuidePageSecond.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGuidePageSecond.m; sourceTree = "<group>"; };
 		5428FE04201B13BA000D0742 /* DRGuidePageThird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRGuidePageThird.h; sourceTree = "<group>"; };
 		5428FE05201B13BA000D0742 /* DRGuidePageThird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGuidePageThird.m; sourceTree = "<group>"; };
-		542A54D220A98DC100787C50 /* DRRegisterPhoneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRRegisterPhoneView.h; sourceTree = "<group>"; };
-		542A54D320A98DC100787C50 /* DRRegisterPhoneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRRegisterPhoneView.m; sourceTree = "<group>"; };
 		542AC34A1FE2635A0070CE5F /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = ThirdLibs/AMapFoundationKit.framework; sourceTree = "<group>"; };
 		542AC34B1FE2635A0070CE5F /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = ThirdLibs/MAMapKit.framework; sourceTree = "<group>"; };
 		542AC3551FE264330070CE5F /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -356,8 +351,6 @@
 		544F5EC32106BDFA002F7EEC /* DRUpdateVersionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRUpdateVersionView.m; sourceTree = "<group>"; };
 		54565BC22019D5160023CBA0 /* DRGuidePageFirst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRGuidePageFirst.h; sourceTree = "<group>"; };
 		54565BC32019D5160023CBA0 /* DRGuidePageFirst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRGuidePageFirst.m; sourceTree = "<group>"; };
-		5465CA8D20B64F1C00DD6A81 /* DRRegisterUsernameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRRegisterUsernameView.h; sourceTree = "<group>"; };
-		5465CA8E20B64F1C00DD6A81 /* DRRegisterUsernameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRRegisterUsernameView.m; sourceTree = "<group>"; };
 		5465D3161EEFDB8C00AD910B /* ZZNullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNullView.h; sourceTree = "<group>"; };
 		5465D3171EEFDB8C00AD910B /* ZZNullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNullView.m; sourceTree = "<group>"; };
 		5467E3B21F024FCE00D73091 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
@@ -381,15 +374,7 @@
 		5473D22920A2E29000A40382 /* DRIntelligentAnalysisQuestionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRIntelligentAnalysisQuestionView.m; sourceTree = "<group>"; };
 		5473D22E20A2F35E00A40382 /* DRIntelligentAnalysisQuestionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRIntelligentAnalysisQuestionModel.h; sourceTree = "<group>"; };
 		5473D22F20A2F35E00A40382 /* DRIntelligentAnalysisQuestionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRIntelligentAnalysisQuestionModel.m; sourceTree = "<group>"; };
-		54758D9D20B4134A0009ACC4 /* DRPhoneTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRPhoneTextView.h; sourceTree = "<group>"; };
-		54758D9E20B4134A0009ACC4 /* DRPhoneTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRPhoneTextView.m; sourceTree = "<group>"; };
-		54758DA120B4135E0009ACC4 /* DRPwdTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRPwdTextView.h; sourceTree = "<group>"; };
-		54758DA220B4135E0009ACC4 /* DRPwdTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRPwdTextView.m; sourceTree = "<group>"; };
 		547B94FC1FDE1B9100038B68 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
-		547D952220A5395C00A355DA /* DRVerifyCodeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRVerifyCodeButton.h; sourceTree = "<group>"; };
-		547D952320A5395C00A355DA /* DRVerifyCodeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRVerifyCodeButton.m; sourceTree = "<group>"; };
-		547D952920A5641E00A355DA /* DRInviteCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRInviteCodeView.h; sourceTree = "<group>"; };
-		547D952A20A5641E00A355DA /* DRInviteCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRInviteCodeView.m; sourceTree = "<group>"; };
 		54801F4920A3E85200E91330 /* DRDialogueCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDialogueCell.h; sourceTree = "<group>"; };
 		54801F4A20A3E85200E91330 /* DRDialogueCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDialogueCell.m; sourceTree = "<group>"; };
 		54906A4D2006FCCE0040254E /* CALayer+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Transition.h"; sourceTree = "<group>"; };
@@ -787,6 +772,15 @@
 				540D22A51EC206C700C2410E /* UIWindow+LGAlertView.m */,
 			);
 			path = LGAlertView;
+			sourceTree = "<group>";
+		};
+		54148175221254FC0075B927 /* TopAlertClassess */ = {
+			isa = PBXGroup;
+			children = (
+				54148176221254FC0075B927 /* TopAlert.h */,
+				54148177221254FC0075B927 /* TopAlert.m */,
+			);
+			path = TopAlertClassess;
 			sourceTree = "<group>";
 		};
 		542AC3611FE265F60070CE5F /* Resources */ = {
@@ -1304,22 +1298,10 @@
 			children = (
 				54E8DAA01FD78CEE002ADDAB /* LoginView.h */,
 				54E8DA9D1FD78CEE002ADDAB /* LoginView.m */,
+				5414817A22125A900075B927 /* DRLoginFormView.h */,
+				5414817B22125A900075B927 /* DRLoginFormView.m */,
 				549FC5F91FEA25F800E88043 /* DRLoginBtnView.h */,
 				549FC5FA1FEA25F800E88043 /* DRLoginBtnView.m */,
-				547D952220A5395C00A355DA /* DRVerifyCodeButton.h */,
-				547D952320A5395C00A355DA /* DRVerifyCodeButton.m */,
-				547D952920A5641E00A355DA /* DRInviteCodeView.h */,
-				547D952A20A5641E00A355DA /* DRInviteCodeView.m */,
-				542A54D220A98DC100787C50 /* DRRegisterPhoneView.h */,
-				542A54D320A98DC100787C50 /* DRRegisterPhoneView.m */,
-				542292DA20AA858000A31650 /* DRRegisterNicknameView.h */,
-				542292DB20AA858000A31650 /* DRRegisterNicknameView.m */,
-				54758D9D20B4134A0009ACC4 /* DRPhoneTextView.h */,
-				54758D9E20B4134A0009ACC4 /* DRPhoneTextView.m */,
-				54758DA120B4135E0009ACC4 /* DRPwdTextView.h */,
-				54758DA220B4135E0009ACC4 /* DRPwdTextView.m */,
-				5465CA8D20B64F1C00DD6A81 /* DRRegisterUsernameView.h */,
-				5465CA8E20B64F1C00DD6A81 /* DRRegisterUsernameView.m */,
 				544F5EC22106BDFA002F7EEC /* DRUpdateVersionView.h */,
 				544F5EC32106BDFA002F7EEC /* DRUpdateVersionView.m */,
 			);
@@ -1493,6 +1475,7 @@
 		A1F5608E1E66608D0089114D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				54148175221254FC0075B927 /* TopAlertClassess */,
 				C23C7433210AC60400AF5F4D /* UMShare */,
 				54D8F3851FFA44E300B1640C /* NullSafe.m */,
 				C2BD51D41FEA2DAC00A1AF8E /* NSDictionary+EmptyString.h */,
@@ -1932,6 +1915,7 @@
 				540D22AC1EC206C700C2410E /* LGAlertViewTextField.m in Sources */,
 				54DDD8981F56993900446089 /* NSObject+MJKeyValue.m in Sources */,
 				7AC05F151EA8F2C800A2FCBD /* NSString+Extension.m in Sources */,
+				5414817C22125A900075B927 /* DRLoginFormView.m in Sources */,
 				540D22A71EC206C700C2410E /* LGAlertViewButton.m in Sources */,
 				54906A522006FCCE0040254E /* CALayer+Transition.m in Sources */,
 				54DDD8711F56993000446089 /* HJRequestDefine.m in Sources */,
@@ -1970,14 +1954,12 @@
 				549FC5FB1FEA25F800E88043 /* DRLoginBtnView.m in Sources */,
 				54DDD8421F56991C00446089 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A1F7D1141E6900C500D3E5FF /* NSData+AES.m in Sources */,
-				5465CA8F20B64F1C00DD6A81 /* DRRegisterUsernameView.m in Sources */,
 				5428FE06201B13BA000D0742 /* DRGuidePageThird.m in Sources */,
 				54FD39D01F0DCDA4004BC351 /* README.md in Sources */,
 				542DEF531F57AB3F00852DF4 /* HJUIDefine.m in Sources */,
 				54DDD83C1F56991C00446089 /* AFURLSessionManager.m in Sources */,
 				54C1626520BF99A000EA87F8 /* RIButtonItem.m in Sources */,
 				5422BD681F60D2580046A7D4 /* UIImage+Additions.m in Sources */,
-				54758DA320B4135E0009ACC4 /* DRPwdTextView.m in Sources */,
 				546A2B831FEB568200A1687B /* DRLoginModel.m in Sources */,
 				A1F560991E66608D0089114D /* NSTimer+timerBlock.m in Sources */,
 				540D22A81EC206C700C2410E /* LGAlertViewButtonProperties.m in Sources */,
@@ -1987,9 +1969,7 @@
 				5441B6291FDA350A00FC3380 /* DRClauseLiabilityViewController.m in Sources */,
 				54DDD89A1F56993900446089 /* NSString+MJExtension.m in Sources */,
 				54A161841FFF96CA0037AD79 /* DRTermsExplanationCell.m in Sources */,
-				547D952B20A5641E00A355DA /* DRInviteCodeView.m in Sources */,
 				54FD39C61F0DC8E1004BC351 /* UIDevice+FCUUID.m in Sources */,
-				547D952420A5395C00A355DA /* DRVerifyCodeButton.m in Sources */,
 				A1F7D10E1E68FFF800D3E5FF /* HJUserModel.m in Sources */,
 				54A488FE1FF4FCB300116587 /* NSMutableAttributedString+DREX.m in Sources */,
 				C2B7CCCD1FDD02AC009F201C /* UICountingLabel.m in Sources */,
@@ -2002,14 +1982,12 @@
 				A14232191E790FE900AF0EA5 /* UIView+round.m in Sources */,
 				54C47FDB2202C38F00E7C99F /* CWLateralSlideAnimator.m in Sources */,
 				A12CA9D71E67BCD200ADC3C1 /* HJUICommon.m in Sources */,
-				54758D9F20B4134A0009ACC4 /* DRPhoneTextView.m in Sources */,
 				7AC05F191EA8F2C800A2FCBD /* UIFontEX.m in Sources */,
 				54DDD8A31F56994500446089 /* README.md in Sources */,
 				54EA730C201EC87100C59437 /* DRGuidePageFour.m in Sources */,
 				54DDD89B1F56993900446089 /* README.md in Sources */,
 				54DDD8721F56993000446089 /* HJAFNetWorking.m in Sources */,
 				A1F7D1151E6900C500D3E5FF /* NSObject+CryptFile.m in Sources */,
-				542292DC20AA858000A31650 /* DRRegisterNicknameView.m in Sources */,
 				A1F7D11B1E6900D800D3E5FF /* NSObject+CryptFile.m in Sources */,
 				C2CBE1D41FD7B6AC0029520D /* DRBaseNavigationViewController.m in Sources */,
 				C23C731D2109B74000AF5F4D /* DRShareView.m in Sources */,
@@ -2019,7 +1997,7 @@
 				54DDD8731F56993000446089 /* HJDataCenter.m in Sources */,
 				54C47FE62202CA2000E7C99F /* CWTableViewCellInfo.m in Sources */,
 				540D22A91EC206C700C2410E /* LGAlertViewCell.m in Sources */,
-				542A54D420A98DC100787C50 /* DRRegisterPhoneView.m in Sources */,
+				54148179221254FC0075B927 /* TopAlert.m in Sources */,
 				54C1626720BF99A000EA87F8 /* LHEnvManager.m in Sources */,
 				C26C74D52045421B00FE4E6F /* PushTransition.m in Sources */,
 				7AC05F1B1EA8F2C800A2FCBD /* UIImageEX.m in Sources */,

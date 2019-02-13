@@ -42,11 +42,10 @@
 #import "UICountingLabel.h"
 #import "NSMutableAttributedString+DREX.h"
 #import "NSDate+DRExtension.h"
+#import "TopAlert.h"
 
 
 
-//#define BaseUrl          @"http://192.168.2.213:8080/" //开发
-//#define BaseUrl         @"http://120.55.85.150:10021/laolaiqiao-web/"//测试
 
 
 /*--------------------背景色--------------------*/
@@ -97,23 +96,7 @@
 #define kSuccess @"200"
 #define kNoogin @"600"
 #define kUsernameNoFind @"611"
-//STATUS_200("200", "OK"),
-//STATUS_300("300", "参数不能为空"),
-//STATUS_400("400", "失败"),
-//STATUS_500("500", "Exception"),
-//STATUS_600("600", "请先登录"),
-//STATUS_601("601", "用户名或密码错误，请重新输入"),
-//STATUS_602("602", "手机号不存在"),
-//STATUS_604("604", "手机号已注册"),
-//STATUS_605("605", "验证码错误"),
-//STATUS_606("606", "验证码不存在或已失效"),
-//STATUS_607("607", "邀请码不存在"),
-//STATUS_608("608", "邀请码已使用"),
-//STATUS_609("609", "昵称已存在"),
-//STATUS_610("610", "请输入六位数字验证码"),
-//STATUS_611("611", "该用户名未注册，请使用邀请码注册"),
-//STATUS_1070("1070", "未找到数据");
-//STATUS_1070("1070", "未找到数据");
+
 
 //日志输出管理
 #ifdef DEBUG

@@ -31,13 +31,13 @@
 - (void)initUI {
     
     viewBottom = [[UIView alloc]initWithFrame:self.frame];
-    viewBottom.backgroundColor = RGB(215, 215, 215);
-    viewBottom.layer.cornerRadius = 8;
+    viewBottom.backgroundColor = RGB(229, 229, 229);
+    viewBottom.layer.cornerRadius = 2;
     viewBottom.layer.masksToBounds = YES;
     [self addSubview:viewBottom];
     
     
-    NSMutableArray *colors = [NSMutableArray arrayWithArray:@[RGB(93, 182, 251),RGB(105, 127, 255)]];
+    NSMutableArray *colors = [NSMutableArray arrayWithArray:@[RGB(242, 169, 73),RGB(242, 169, 73)]];
     
     
     viewTop = [[ColorView alloc]initWithFrame:CGRectMake(0, 0, viewBottom.frame.size.width, viewBottom.frame.size.height) FromColorArray:colors ByGradientType:leftToRightView];
@@ -45,7 +45,7 @@
     _topLab = [[UILabel alloc] init];
     [self addSubview:_topLab];
     [_topLab bringSubviewToFront:self];
-    _topLab.textColor = RGB(255, 255, 255);
+    _topLab.textColor = RGB(169, 169, 169);
     _topLab.textAlignment = NSTextAlignmentCenter;
     _topLab.frame = CGRectMake(0, 0, kWidth(80), kHeight(28));
 //    _topLab.text = @"登录";
@@ -70,37 +70,30 @@
     
     [UIView animateWithDuration:_time delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
         
-//        viewTop.layer.transform = CATransform3DMakeScale(0.01, 0.01, 1);
+
         viewTop.layer.transform = CATransform3DMakeScale(1*[progressValue floatValue], 1*[progressValue floatValue], 1);
         
         
-//        viewTop.frame = CGRectMake(viewTop.frame.origin.x, viewTop.frame.origin.y, viewTop.frame.size.width, viewBottom.frame.size.height*[progressValue floatValue]);
+        if ([progressValue isEqualToString:@"1"]) {
+   
+            _topLab.textColor = RGB(38, 35, 30);
+        }else {
+            
+            _topLab.textColor = RGB(169, 169, 169);
+        }
+        
+
         [self setNeedsLayout];
         [self setNeedsDisplay];
-    } completion:^(BOOL finished) {
-\
         
         
-        if ([progressValue isEqualToString:@"1"]) {
-            self.layer.shadowColor = RGB(189, 192, 192).CGColor;
-            self.layer.shadowOpacity = 0.7f;
-            self.layer.shadowRadius = 5.f;
-            anima.toValue = @(CGSizeMake(3, 6));
-            [self.layer addAnimation:anima forKey:nil];
-
-        }else {
-            anima.toValue = @(CGSizeMake(0, 0));
-            [self.layer addAnimation:anima forKey:nil];
-        }
 
         
-    }];
+    } completion:nil];
     
     
     
-//    [UIView animateWithDuration:_time animations:^{
-//        viewTop.frame = CGRectMake(viewTop.frame.origin.x, viewTop.frame.origin.y, viewBottom.frame.size.width*[progressValue floatValue], viewTop.frame.size.height);
-//    }];
+
 }
 
 

@@ -85,7 +85,7 @@
 #pragma mark 网络
 #pragma mark === 获取个人信息
 - (void)personalCenterEngine {
-    @weakify(self);
+//    @weakify(self);
 //    [[request new] personalCenter:^(DRPersonalCenterModel *data, RequestResult *result) {
 //        @strongify(self);
 //
@@ -109,12 +109,32 @@
 
 #pragma mark === 登出
 - (void)logoutEngine {
-    //    [self cw_presentViewController:loginVC];
-    LoginVC *loginVC=[[LoginVC alloc] init];
+//    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    // 退出请求成功 发出通知
     
-    [self presentViewController:loginVC animated:YES completion:^{
-        
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLogout object:nil];
     }];
+    
+    
+    
+
+    
+    
+
+    
+//    [self.presentedViewController  dismissViewControllerAnimated:YES completion:nil];
+//    [self cw_dismissViewController];
+//    [self dismissViewControllerAnimated:YES completion:^{
+    
+//    }];
+
+//    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+//    }];
+//
+    
 
 
     
@@ -130,7 +150,7 @@
     
     
     
-    @weakify(self);
+//    @weakify(self);
 //    [[request new]logoutWithNet:^(id data, RequestResult *result) {
 //        @strongify(self);
 //        [__user logout];
@@ -152,7 +172,7 @@
 #pragma mark === TableView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return kHeight(157);
+    return kHeight(127);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -228,7 +248,7 @@
     [btn setTitle:@"退出登录" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:font(16)];
     [btn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(logoutEngine) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(btnBgView.mas_left).offset(0);
         make.top.equalTo(btnBgView.mas_top).offset(0);
@@ -342,24 +362,7 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 }
 
-#pragma mark === 登出提示
-- (void)logout {
-    WEAKSELF
-    LGAlertView *alertView = [[LGAlertView alloc] initWithTitle:@"提示"
-                                                        message:@"确定退出登录吗？"
-                                                          style:LGAlertViewStyleAlert
-                                                   buttonTitles:@[@"退出"]
-                                              cancelButtonTitle:@"取消"
-                                         destructiveButtonTitle:nil
-                                                  actionHandler:^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title) {
-                                                      [weakSelf logoutEngine];
-                                                  }
-                                                  cancelHandler:nil
-                                             destructiveHandler:nil];
-    
-    [self setupAlertViewStyle:alertView];
-    [alertView showAnimated:YES completionHandler:nil];
-}
+
 
 
 - (UITableView *)tableView {
@@ -369,8 +372,8 @@
         _tableView.dataSource = self;
         _tableView.backgroundColor = DR_BGCOR3;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
-        _tableView.rowHeight = kHeight(52);
-        _tableView.sectionFooterHeight = kHeight(351);
+        _tableView.rowHeight = kHeight(52.5);
+        _tableView.sectionFooterHeight = kHeight(331);
         
         [self.view addSubview:_tableView];
     }

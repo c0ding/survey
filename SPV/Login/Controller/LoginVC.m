@@ -20,18 +20,13 @@
 #define kUserName @"kUserName"
 #define kUserPhone @"kUserPhone"
 @interface LoginVC ()<LoginViewDelegate>
-@property (nonatomic ,strong) LoginView *loginView;
+@property (nonatomic ,strong) DRBaseNavigationViewController *baseNav;
+@property (nonatomic ,strong) LoginView *loginView ;
 
 @end
 
 @implementation LoginVC
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    DRHomeVC *homeVC = [[DRHomeVC alloc] init];
-    DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
-    [UIApplication sharedApplication].keyWindow.rootViewController = baseNav;
-    
-//    [self presentViewController:baseNav animated:NO completion:nil];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,13 +42,34 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    self.loginView.phoneView.phoneText.text = [userDefault objectForKey:kUserPhone]?:@"";
-    self.loginView.pwdView.userText.text = [userDefault objectForKey:kUserName]?:@"";
-    //分别验证当前文本框样式如何显示
-    [self.loginView.phoneView textChange:self.loginView.phoneView.phoneText];
-    [self.loginView.pwdView textChange];
+    //    self.loginView.phoneView.phoneText.text = [userDefault objectForKey:kUserPhone]?:@"";
+    //    self.loginView.pwdView.userText.text = [userDefault objectForKey:kUserName]?:@"";
+    //    //分别验证当前文本框样式如何显示
+    //    [self.loginView.phoneView textChange:self.loginView.phoneView.phoneText];
+    //    [self.loginView.pwdView textChange];
     [__user logout];
 }
+
+- (void)loginViewLoginBtnClickWithUserName:(NSString *)userName andPwd:(NSString *)pwd {
+    
+    if ([userName isEqualToString:@"a"]) {
+         [[[TopAlert alloc]initWithStyle:[UIColor blackColor]] setHeaderTitle:@"登录失败，请重新尝试"];
+        return;
+    }
+    
+//    [UIApplication sharedApplication].keyWindow.rootViewController = baseNav;
+    
+    [self presentViewController:self.baseNav animated:YES completion:nil];
+}
+
+- (DRBaseNavigationViewController *)baseNav {
+    if (!_baseNav) {
+        DRHomeVC *homeVC = [[DRHomeVC alloc] init];
+        _baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
+    }
+    return _baseNav;
+}
+
 
 - (void)addObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateVersion:) name:kToUpdateNotification object:nil];
@@ -81,45 +97,16 @@
 
 
 
-    
 
 
 
 
-#pragma mark === 未注册 弹窗提示
-- (void)noRegistPopupWithMessage:(NSString *)message {
-    WEAKSELF
-    LGAlertView *alertView =
-    [[LGAlertView alloc]
-     initWithTitle:@"提示"
-     message:message
-     style:LGAlertViewStyleAlert
-     buttonTitles:@[@"去注册"]
-     cancelButtonTitle:@"取消"
-     destructiveButtonTitle:nil
-     actionHandler:^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title) {
-         [weakSelf loginViewRegisterBtnClick];
-     }
-     cancelHandler:nil
-     destructiveHandler:nil];
-    alertView.titleFont = [UIFont fontWithName:@"PingFang-SC-Medium" size:font(18)];
-    alertView.titleTextColor = RGB(3, 3, 3);
-    alertView.messageFont = [UIFont fontWithName:@"PingFangSC-Regular" size:font(13)];
-    alertView.messageTextColor = RGB(3, 3, 3);
-    alertView.cancelButtonTitleColor = RGB(155, 155, 155);
-    alertView.titleFont = [UIFont fontWithName:@"PingFangSC-Regular" size:font(18)];
-    alertView.buttonsTitleColor = RGB(80, 146, 255);
-    alertView.buttonsFont = [UIFont fontWithName:@"PingFang-SC-Medium" size:font(18)];
-    [alertView showAnimated:YES completionHandler:nil];
-}
 
 
 
-- (void)whiteUserNameToUserDefault {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:self.loginView.phoneView.phoneText.text?:@"" forKey:kUserPhone];
-    [userDefault setObject:self.loginView.pwdView.userText.text?:@"" forKey:kUserName];
-}
+
+
+
 
 /// 选择url
 - (void)netConfig{
@@ -129,10 +116,10 @@
     [self.view addGestureRecognizer:tapGesture];
 }
 - (void)switchNetwork {
-//#ifdef DEBUG
-//
-//#else
-//#endif
+    //#ifdef DEBUG
+    //
+    //#else
+    //#endif
     
     [[LHEnvManager shareManager] showSwitch];
 }

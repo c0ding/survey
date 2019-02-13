@@ -106,7 +106,7 @@
     DRHomeVC *homeVC = [[DRHomeVC alloc] init];
     DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
     
-    self.window.rootViewController = loginVC;
+    self.window.rootViewController = baseNav;
     
 }
 

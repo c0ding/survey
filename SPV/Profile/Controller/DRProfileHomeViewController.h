@@ -10,6 +10,8 @@
 
 //可偏移的距离
 #define kDistance   (kScreenWidth*0.7333333)
+
+#define  kLogout @"kLogout"
 @interface DRProfileHomeViewController : UIViewController
 
 @end
