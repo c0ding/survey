@@ -10,6 +10,8 @@
 #import "UIViewController+CWLateralSlide.h"
 #import "DRProfileHomeViewController.h"
 #import "LoginVC.h"
+
+#import "DRCollectVC.h"
 @interface DRHomeVC ()
 @property (nonatomic,strong) DRProfileHomeViewController *profileHomeVC;
 @property (nonatomic,strong) LoginVC *loginVC;
@@ -28,13 +30,13 @@
     // 注册手势驱动
     WEAKSELF
     [self cw_registerShowIntractiveWithEdgeGesture:YES transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
-         if (direction == CWDrawerTransitionFromRight) { // 右侧滑出
+        if (direction == CWDrawerTransitionFromRight) { // 右侧滑出
             [weakSelf maskAnimationFromRight];
         }
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutAlert) name:kLogout object:nil];
-
+    
 }
 
 
@@ -42,10 +44,11 @@
 - (void)logoutAlert {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"显示的标题" message:@"标题的提示信息" preferredStyle:UIAlertControllerStyleAlert];
-
+    
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击取消");
+        
         
     }]];
     
@@ -54,11 +57,18 @@
     }]];
     
     
-     [self presentViewController:alertController animated:YES completion:nil];
+    [self presentViewController:alertController animated:YES completion:nil];
     
-
+    
 }
 
+-(void )touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self collectPage];
+}
+- (void)collectPage {
+    DRCollectVC *collectVC = [[DRCollectVC alloc] init];
+    [self presentViewController:collectVC animated:YES completion:nil];
+}
 - (void)logout {
     if (self.presentingViewController) {
         [self dismissViewControllerAnimated:YES completion:nil];

@@ -60,7 +60,7 @@
     NSArray *images = @[@"GuidePage_1", @"GuidePage_2",@"GuidePage_3",@"GuidePage_4"];
     NSArray *imageIphoneXs = @[@"GuidePage_1x", @"GuidePage_2x",@"GuidePage_3x",@"GuidePage_4x"];
     BOOL isShowGuidePage = [XTGuidePagesViewController isShow];
-//    isShowGuidePage = YES;
+    isShowGuidePage = NO;
     if (isShowGuidePage) {
         XTGuidePagesViewController *xt = [[XTGuidePagesViewController alloc] init];
         self.window.rootViewController = xt;

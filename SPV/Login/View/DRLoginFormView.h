@@ -22,3 +22,4 @@ typedef void(^TextChangeBlock) (NSString *str);
 @end
 
 NS_ASSUME_NONNULL_END
+

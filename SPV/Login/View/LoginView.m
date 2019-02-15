@@ -120,7 +120,7 @@
     [_nameView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(kWidth(24));
         make.right.equalTo(self.mas_right).offset(-kWidth(24));
-        make.top.equalTo(_image1.mas_bottom).offset(kHeight(32));
+        make.top.equalTo(_lab1.mas_bottom).offset(kHeight(48));
         make.height.offset(kHeight(53));
     }];
     

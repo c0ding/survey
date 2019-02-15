@@ -39,7 +39,7 @@
     [super viewWillAppear:animated];
     [self addObserver];
     
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     //    self.loginView.phoneView.phoneText.text = [userDefault objectForKey:kUserPhone]?:@"";
@@ -108,7 +108,7 @@
 
 
 
-/// 选择url
+/// 选择url；/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 - (void)netConfig{
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchNetwork)];
     tapGesture.numberOfTapsRequired = 2; //点击次数

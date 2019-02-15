@@ -12,10 +12,12 @@
 +(instancetype)shareDRMockData;
 ///案件详情与状态
 - (NSDictionary *)lawCaseMock;
-///抵押物详情
-- (NSDictionary *)dywMock;
+
 ///债权主页
 - (NSDictionary *)obligatoryRightsMock;
 ///版本更新
 - (NSDictionary *)updateVersionMock;
+
+/// 获取采集数据
+- (NSDictionary *)collectGet;
 @end

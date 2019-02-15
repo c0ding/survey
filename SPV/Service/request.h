@@ -12,6 +12,7 @@
 #import "DRMockData.h"
 #import "DRPersonalCenterModel.h"
 #import "DRUpdateVersionModel.h"
+#import "DRCollectGetModel.h"
 typedef void(^dataResponse)(id data,RequestResult *result);
 typedef void(^localResponse)(id data);
 typedef void(^errorResponse)(RequestResult *result);

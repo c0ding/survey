@@ -105,19 +105,38 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 /** 判断设备类型*/
-#define iPhone10 ([UIScreen mainScreen].bounds.size.height == 812)
-#define iPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
+#define isPadd ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+
+#define iPhone10 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPadd : NO)
+
+
+#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !isPadd : NO)
+// 判断iPhoneXs
+#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPadd: NO)
+// 判断iPhoneXs Max
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !isPadd : NO)
+
+
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) && !isPadd : NO)
+
+
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size)) : NO)
 #define iPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+
+#define Height_StatusBar ((iPhone10 == YES || IS_IPHONE_Xr == YES || IS_IPHONE_Xs == YES || IS_IPHONE_Xs_Max == YES) ? 44.0 : 20.0)
+#define Height_NavBar ((iPhone10 == YES || IS_IPHONE_Xr == YES || IS_IPHONE_Xs == YES || IS_IPHONE_Xs_Max == YES) ? 88.0 : 64.0)
+#define Height_TabBar ((iPhone10 == YES || IS_IPHONE_Xr == YES || IS_IPHONE_Xs == YES || IS_IPHONE_Xs_Max == YES) ? 83.0 : 49.0)
+
 //基于6的适配
 #define kWidth(R) (R)*(kScreenWidth)/375
 //#define kHeight(R) (iPhone10?((R)*(kScreenHeight)/667):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
 
-#define kHeight(R) (iPhone10?((R)*(kScreenHeight)/812):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
+#define kHeight(R) (IS_IPHONE_Xs_Max?((R)*(kScreenHeight)/896):IS_IPHONE_Xr?((R)*(kScreenHeight)/896):iPhone10?((R)*(kScreenHeight)/812):iPhone4?((R)*(kScreenHeight)/568):((R)*(kScreenHeight)/667))
 
 #define font(R) (R)*(kScreenWidth)/375
 #define kFONT16   [UIFont systemFontOfSize:font(16.0f)]
