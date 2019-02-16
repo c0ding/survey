@@ -48,7 +48,7 @@
 		542AC3671FE266110070CE5F /* mystyle_sdk_1513232338_0100.data in Resources */ = {isa = PBXBuildFile; fileRef = 542AC3651FE266110070CE5F /* mystyle_sdk_1513232338_0100.data */; };
 		542DEF531F57AB3F00852DF4 /* HJUIDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 542DEF521F57AB3F00852DF4 /* HJUIDefine.m */; };
 		543CEFD522165CEC00E60E83 /* DRCollectGetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 543CEFD422165CEC00E60E83 /* DRCollectGetModel.m */; };
-		543CEFD82216864E00E60E83 /* DRCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 543CEFD72216864E00E60E83 /* DRCollectCell.m */; };
+		543CEFD82216864E00E60E83 /* DRCollectCellA.m in Sources */ = {isa = PBXBuildFile; fileRef = 543CEFD72216864E00E60E83 /* DRCollectCellA.m */; };
 		543F932C20F5D5FF00158535 /* DRMockData.m in Sources */ = {isa = PBXBuildFile; fileRef = 543F932B20F5D5FF00158535 /* DRMockData.m */; };
 		5441B6161FD9375C00FC3380 /* DRProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5441B6151FD9375C00FC3380 /* DRProfileHomeViewController.m */; };
 		5441B61D1FD9531D00FC3380 /* DRProfileHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5441B61C1FD9531D00FC3380 /* DRProfileHomeCell.m */; };
@@ -346,8 +346,8 @@
 		542DEF521F57AB3F00852DF4 /* HJUIDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJUIDefine.m; sourceTree = "<group>"; };
 		543CEFD322165CEC00E60E83 /* DRCollectGetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRCollectGetModel.h; sourceTree = "<group>"; };
 		543CEFD422165CEC00E60E83 /* DRCollectGetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRCollectGetModel.m; sourceTree = "<group>"; };
-		543CEFD62216864E00E60E83 /* DRCollectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRCollectCell.h; sourceTree = "<group>"; };
-		543CEFD72216864E00E60E83 /* DRCollectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRCollectCell.m; sourceTree = "<group>"; };
+		543CEFD62216864E00E60E83 /* DRCollectCellA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRCollectCellA.h; sourceTree = "<group>"; };
+		543CEFD72216864E00E60E83 /* DRCollectCellA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRCollectCellA.m; sourceTree = "<group>"; };
 		543F932A20F5D5FF00158535 /* DRMockData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRMockData.h; sourceTree = "<group>"; };
 		543F932B20F5D5FF00158535 /* DRMockData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRMockData.m; sourceTree = "<group>"; };
 		5441B6141FD9375C00FC3380 /* DRProfileHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRProfileHomeViewController.h; sourceTree = "<group>"; };
@@ -841,8 +841,8 @@
 				5414818C2213E3870075B927 /* DRCollectDropView.m */,
 				5414818F2213E6BF0075B927 /* DRDropMainView.h */,
 				541481902213E6BF0075B927 /* DRDropMainView.m */,
-				543CEFD62216864E00E60E83 /* DRCollectCell.h */,
-				543CEFD72216864E00E60E83 /* DRCollectCell.m */,
+				543CEFD62216864E00E60E83 /* DRCollectCellA.h */,
+				543CEFD72216864E00E60E83 /* DRCollectCellA.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1650,11 +1650,8 @@
 		A1F62A721E65123600FB0032 /* SPV */ = {
 			isa = PBXGroup;
 			children = (
-
 				541481802213B16C0075B927 /* Collect */,
-
 				C284D2222212C3A3002C4DD0 /* HomePage */,
-
 				54C47FC32202C14E00E7C99F /* Home */,
 				54C1625A20BF999F00EA87F8 /* NetEnvironmentConfig */,
 				54906A4B2006FCCE0040254E /* GuidePage */,
@@ -2174,7 +2171,7 @@
 				540B18691EC9939800D1B4D0 /* ASValuePopUpView.m in Sources */,
 				54DDD83B1F56991C00446089 /* AFURLResponseSerialization.m in Sources */,
 				54B849911FF61F7800B39926 /* DRPlaceholderView.m in Sources */,
-				543CEFD82216864E00E60E83 /* DRCollectCell.m in Sources */,
+				543CEFD82216864E00E60E83 /* DRCollectCellA.m in Sources */,
 				54DDD8971F56993900446089 /* NSObject+MJCoding.m in Sources */,
 				54DDD85D1F56992600446089 /* FMDatabaseQueue.m in Sources */,
 				54DDD8761F56993000446089 /* README.md in Sources */,

@@ -9,7 +9,7 @@
 #import "DRCollectVC.h"
 #import "DRCollectNavView.h"
 #import "DRDropMainView.h"
-#import "DRCollectCell.h"
+#import "DRCollectCellA.h"
 @interface DRCollectVC ()<UITableViewDelegate ,UITableViewDataSource>
 
 @property (nonatomic ,strong)UIView *maskView;
@@ -27,12 +27,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     NSDictionary *dict = [[DRMockData shareDRMockData] collectGet];
     _collectGetModel = [DRCollectGetModel mj_objectWithKeyValues: dict ];
     
     _sectionHTittles = @[@"项目描述",@"实地定位",@"实地拍摄"];
     self.view.backgroundColor = [UIColor whiteColor];
-    _collectNavView = [[DRCollectNavView alloc] initWithFrame:CGRectMake(0, Height_StatusBar, kScreenWidth, kHeight(44))];
+    
+    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, Height_StatusBar)];
+    statusView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:statusView];
+    _collectNavView = [[DRCollectNavView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(statusView.frame), kScreenWidth, kHeight(44))];
     [self.view addSubview:_collectNavView];
     WEAKSELF
     _collectNavView.leftClickBlock = ^{
@@ -40,7 +45,6 @@
     };
     _collectNavView.rightClickBlock = ^{
         NSLog(@"保存");
-        [weakSelf.collectNavView showBtn:YES];
     };
     
     _collectNavView.centerClickBlock = ^{
@@ -71,6 +75,8 @@
         view.frame = CGRectMake(0, y, kScreenWidth, kScreenHeight - y);
         view.backgroundColor = [UIColor whiteColor];
         view.sectionHeaderHeight = kHeight(34);
+        view.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
+        view.sectionFooterHeight = kHeight(9);
         [self.view addSubview:view];
         view;
     });
@@ -104,8 +110,23 @@
     [self.collectNavView showBtn:isShow];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
+    DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
+    
 
+    CGFloat rightLabH = [dataModel.content?:@"1行" boundingRectWithSize:CGSizeMake(labW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:font(labFont)]} context:nil].size.height;
 
+    return rightLabH + topMargin + bottomMargin;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = RGB(242, 242, 242);
+    return view;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
@@ -126,12 +147,15 @@
     return _sectionHTittles.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  3;
+    return  _collectGetModel.data.dataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DRCollectCell *cell = [[DRCollectCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-    cell.leftTittle = @"地址地址";
+    DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+    
+    DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
+    cell.leftTittle = dataModel.name;
+    cell.rightTittle = dataModel.content;
     return cell;
     
 }

@@ -134,6 +134,23 @@ static DRMockData *_instance;
                      @"type":@"抵押物类型",
                      @"dataList":@[
                              @{
+                                 @"name":@"左边名字1",
+                                 @"param":@"param回传使用",
+                                 @"type":@2,
+                                 @"content":@"s右边内容右边右边右边右边内容右边内容右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[
+                                         @{
+                                             @"name":@"",
+                                             @"url":@"",
+                                             },
+                                         ],
+                                 
+                                 },
+                             
+                             
+                             @{
                                  @"name":@"左边名字",
                                  @"param":@"param回传使用",
                                  @"type":@2,
@@ -148,6 +165,9 @@ static DRMockData *_instance;
                                          ],
                                  
                                  },
+                             
+                             
+                             
                              ],
                      @"longitude":@123.1231231,
                      @"latitude":@123.56565,

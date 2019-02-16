@@ -10,8 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DRCollectCell : UITableViewCell
+#define topMargin 16
+#define bottomMargin 16
+#define labFont 15
+#define labW 270
+@interface DRCollectCellA : UITableViewCell
 @property (nonatomic ,strong) NSString *leftTittle;
+@property (nonatomic ,strong) NSString *rightTittle;
+
 @end
 
 NS_ASSUME_NONNULL_END
