@@ -10,10 +10,11 @@
 #import "DRCollectNavView.h"
 #import "DRDropMainView.h"
 #import "DRCollectCellA.h"
+#import "DRCollectSheetMainView.h"
 @interface DRCollectVC ()<UITableViewDelegate ,UITableViewDataSource>
 
 @property (nonatomic ,strong)UIView *maskView;
-
+@property (nonatomic ,strong)DRCollectSheetMainView *collectSheetMainView;
 @property (nonatomic ,strong)DRCollectNavView *collectNavView;
 @property (nonatomic ,strong)DRDropMainView *dropMainView;
 
@@ -24,6 +25,8 @@
 @end
 
 @implementation DRCollectVC
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,8 +85,8 @@
     });
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-}
+
+
 
 - (void)showDropMainView:(BOOL)isShow {
     _tableView.userInteractionEnabled = !isShow;
@@ -116,8 +119,14 @@
     
     DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
     
-
     CGFloat rightLabH = [dataModel.content?:@"1行" boundingRectWithSize:CGSizeMake(labW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:font(labFont)]} context:nil].size.height;
+    
+    
+    CGFloat leftLabH = [dataModel.name?:@"1行" boundingRectWithSize:CGSizeMake(kWidth(60), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:font(labFont)]} context:nil].size.height;
+    
+    if (leftLabH > rightLabH) {
+        return leftLabH + topMargin + bottomMargin;
+    }
 
     return rightLabH + topMargin + bottomMargin;
 }
@@ -151,17 +160,62 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-    
     DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
-    cell.leftTittle = dataModel.name;
-    cell.rightTittle = dataModel.content;
-    return cell;
+    if (dataModel.type == 6) {
+        DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+        for (SelectModel*selectModel in dataModel.select) {
+            if ([selectModel.key isEqualToString:dataModel.content]) {
+                cell.rightTittle = selectModel.value;
+                break;
+            }
+            cell.rightTittle = @"无数据";
+        }
+        cell.leftTittle = dataModel.content;
+        return cell;
+    }
     
+    DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+    return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        
+        DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (SelectModel*selectModel in dataModel.select) {
+            [arr addObject:selectModel.value];
+            
+        }
+        DRCollectSheetMainView *collectSheetMainView = [[DRCollectSheetMainView alloc] initWithFrame:self.view.frame];
+        collectSheetMainView.contents = arr;
+        [collectSheetMainView show];
+        collectSheetMainView.tittle = @"湘雅医院晕";
+
+        // 查询当前选择
+        for (int i=0; i<dataModel.select.count; i++) {
+           SelectModel *selectModel = dataModel.select[i];
+            if ([dataModel.content isEqualToString:selectModel.key]) {
+                collectSheetMainView.currertSlectIndex = i;
+                break;
+            }
+        }
+        collectSheetMainView.sheetMainBlock = ^(NSInteger index, NSString * _Nonnull text) {
+            NSLog(@"当前选中了第%ld个对象，内容：%@",index,text);
+            // 更改选择
+            SelectModel *selectModel = dataModel.select[index];
+            dataModel.content = selectModel.key;
+            
+            [tableView cellForRowAtIndexPath:indexPath];
+//            collectSheetMainView.currertSlectIndex =
+            
+        };
+    }
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
    
 }
@@ -172,6 +226,13 @@
         
         view.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.7172214673913043/1.0];
         view.alpha = 0;
+        view.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+        WEAKSELF
+        [[tap rac_gestureSignal] subscribeNext:^(id x) {
+            [weakSelf showDropMainView:NO];
+        }];
+        [view addGestureRecognizer:tap];
         
         _maskView = view;
     }

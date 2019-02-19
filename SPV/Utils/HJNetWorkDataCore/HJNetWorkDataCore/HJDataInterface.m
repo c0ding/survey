@@ -14,7 +14,10 @@ static inline GlobalDataCenter* DataCenter(){
 }
 
 NSUInteger GetData(RequestParam *param,ParseData parse, LocalResp local,NetResp net,ErrorResp error){
-    return [DataCenter() sendAsynPostRequest:param ParseData:parse LocalResp:local NetResp:net Error:error];
+    
+        return [DataCenter() sendAsynPostRequest:param ParseData:parse LocalResp:local NetResp:net Error:error];
+    
+    
 }
 
 void UploadImage(RequestParam *param, UIImage *img, Progress Progress,UploadFinished finished,ErrorResp error){

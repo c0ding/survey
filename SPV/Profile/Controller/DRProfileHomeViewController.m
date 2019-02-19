@@ -49,14 +49,8 @@
     }];
 }
 - (void)initUI {
-    self.tableView.frame = CGRectMake(0, 0, kDistance, [UIScreen mainScreen].bounds.size.height);
-    
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-
-    
+    self.tableView.frame = CGRectMake(0, 0, kDistance, kScreenHeight);
 }
-
-
 
 -(void)showShareView
 {
@@ -111,7 +105,6 @@
 - (void)logoutEngine {
 //    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     // 退出请求成功 发出通知
-    
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:kLogout object:nil];
     }];
@@ -171,9 +164,6 @@
 #pragma mark 代理
 #pragma mark === TableView
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return kHeight(127);
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] init];
@@ -224,36 +214,22 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor whiteColor];
-    
-    UIView *btnBgView = [[UIView alloc] init];
-    [view addSubview:btnBgView];
-    btnBgView.layer.shadowColor = RGB(212, 212, 212).CGColor;
-    btnBgView.layer.shadowOpacity = 0.69f;
-    btnBgView.layer.shadowOffset = CGSizeMake(1,3);
-    btnBgView.layer.shadowRadius = 5.f;
-    [btnBgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.offset(0);
-        make.top.offset(kHeight(40));
-        make.left.offset(kWidth(28));
-        make.right.offset(-kWidth(28));
+    view.userInteractionEnabled = YES;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:kGetImage(@"login_out")];
+    [view addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.offset(0);
     }];
-    
-    NSMutableArray *colorArray = [@[RGB(93, 182, 251),RGB(105, 127, 255)] mutableCopy];
-    
-    ColorButton *btn = [[ColorButton alloc]initWithFrame:CGRectMake(0, 0, kWidth(319), kHeight(50)) FromColorArray:colorArray ByGradientType:leftToRight ];
-    [btnBgView addSubview:btn];
-    btn.layer.cornerRadius = 5.f;
-    
+    imageView.userInteractionEnabled  = YES;
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [imageView addSubview:btn];
     [btn setTitle:@"退出登录" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:font(16)];
-    [btn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:font(13)];
+    [btn setTitleColor:RGB(242, 169, 73) forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(logoutEngine) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(btnBgView.mas_left).offset(0);
-        make.top.equalTo(btnBgView.mas_top).offset(0);
-        make.bottom.equalTo(btnBgView.mas_bottom).offset(0);
-        make.right.equalTo(btnBgView.mas_right).offset(0);
+        make.bottom.offset(-kHeight(24));
+        make.left.offset(kWidth(16));
     }];
     
     return view;
@@ -373,7 +349,8 @@
         _tableView.backgroundColor = DR_BGCOR3;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
         _tableView.rowHeight = kHeight(52.5);
-        _tableView.sectionFooterHeight = kHeight(331);
+        _tableView.sectionHeaderHeight =  kHeight(127);
+        _tableView.sectionFooterHeight = kScreenHeight - 3*_tableView.rowHeight - _tableView.sectionHeaderHeight - statusHeight;
         
         [self.view addSubview:_tableView];
     }

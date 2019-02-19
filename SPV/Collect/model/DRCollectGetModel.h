@@ -33,9 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) NSInteger type;
 @property(nonatomic,strong) NSString *content;
 @property(nonatomic,assign) BOOL needTransform;
-@property(nonatomic,strong) NSMutableArray *select;
+@property(nonatomic,strong) NSMutableArray<SelectModel *> *select;
 @property(nonatomic,strong) NSMutableArray<AttachmentModel*> *attachmentList;
 @end
+
+
 
 @interface AttachmentModel : NSObject
 @property(nonatomic,strong) NSString *name;
@@ -43,7 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface SelectModel : NSObject
-@property(nonatomic,strong) NSString *name;
+@property(nonatomic,strong) NSString *key;
+@property(nonatomic,strong) NSString *value;
 @end
 
 

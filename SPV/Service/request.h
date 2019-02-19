@@ -18,8 +18,10 @@ typedef void(^localResponse)(id data);
 typedef void(^errorResponse)(RequestResult *result);
 typedef void(^handleErrorCodeReponse)(NSUInteger errorCode);
 @interface request : NSObject
-#pragma -mark 张逸阳
 
 
 
+- (void)loginWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+
+- (void)logoutWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
 @end

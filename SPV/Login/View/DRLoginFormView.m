@@ -46,6 +46,9 @@
     _text.placeholder = placeholder;
 }
 
+- (void)setSecureTextEntry:(BOOL)secureTextEntry {
+    _text.secureTextEntry = secureTextEntry;
+}
 
 #pragma mark - 初始化
 - (instancetype)init {
@@ -80,6 +83,7 @@
         textView.textAlignment = NSTextAlignmentLeft;
         [textView addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
         textView.clearButtonMode = UITextFieldViewModeWhileEditing;
+        
         textView.delegate = self;
         [self addSubview:textView];
         textView;

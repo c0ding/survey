@@ -36,14 +36,19 @@ static inline RequestResult* NSError2RequestResult(NSError* error){
         _httpClient.responseSerializer = [AFHTTPResponseSerializer serializer];
         _httpClient.requestSerializer.timeoutInterval = 30;
         _httpClient.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-        [_httpClient.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [_httpClient.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
         [_httpClient.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
         
-        _httpClient.requestSerializer.HTTPShouldHandleCookies = NO;
+        _httpClient.requestSerializer.HTTPShouldHandleCookies = YES;
         
+        [DRCookiesManager loadCookies];
+
     }
     return self;
 }
+
 
 -(void)dealloc{
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
@@ -54,25 +59,78 @@ static inline RequestResult* NSError2RequestResult(NSError* error){
                      Error:(ErrorResp) errRep
 {
 
-    [_httpClient POST:param.url
-          parameters:param.param
-            progress:nil
-             success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
-                 NSError* parseErr = nil;
-                 NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&parseErr];
-                 if(parseErr != nil){
-                     if(errRep) errRep(NSError2RequestResult(parseErr));
-                     return;
-                 }
-                 RequestResult* res = [RequestResult mj_objectWithKeyValues:json[@"baseApiResult"]];
-                 netFunc(json , res);
-             }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                  NSError *err = [NSError errorWithDomain:@"数据加载失败" code:error.code userInfo:error.userInfo];
-//                  if(errRep) errRep(NSError2RequestResult(err));
-              }
+    if ([param.cmd isEqualToString:@"get"]) {
+        [_httpClient GET:param.url parameters:param.param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSError* parseErr = nil;
+            NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&parseErr];
+            if(parseErr != nil){
+                if(errRep) errRep(NSError2RequestResult(parseErr));
+                return;
+            }
+            RequestResult* res = [RequestResult mj_objectWithKeyValues:json[@"baseApiResult"]];
+            [DRCookiesManager saveCookies];
+            netFunc(json , res);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            NSError *err = [NSError errorWithDomain:@"数据加载失败" code:error.code userInfo:error.userInfo];
+            //                  if(errRep) errRep(NSError2RequestResult(err));
+        }];
+    }
+    else {
+    
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        
+        NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:param.url parameters:param.param error:nil];
+        
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//            NSLog(@"-----responseObject===%@+++++",responseObject);
+            if (!error) {
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                    NSError* parseErr = nil;
+//                    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&parseErr];
+                    if(parseErr != nil){
+                        if(errRep) errRep(NSError2RequestResult(parseErr));
+                        return;
+                    }
+                    [DRCookiesManager saveCookies];
+                    RequestResult* res = [RequestResult mj_objectWithKeyValues:responseObject[@"baseApiResult"]];
+                    netFunc(responseObject , res);
+                } else {
+                    
+                }
+            } else {
+                NSLog(@"请求失败error=%@", error);
+                [[[TopAlert alloc]initWithStyle:[UIColor blackColor]] setHeaderTitle:@"服务异常，请重试"];
+                if(errRep) errRep(NSError2RequestResult(error));
+            }
+        }];
+        
+        [task resume];
 
-     ];
+        
+        
+        
+//        [_httpClient POST:param.url
+//          parameters:param.param
+//            progress:nil
+//             success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+//                 NSError* parseErr = nil;
+//                 NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&parseErr];
+//                 if(parseErr != nil){
+//                     if(errRep) errRep(NSError2RequestResult(parseErr));
+//                     return;
+//                 }
+//                 RequestResult* res = [RequestResult mj_objectWithKeyValues:json[@"baseApiResult"]];
+//                 netFunc(json , res);
+//             }
+//              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+////                  NSError *err = [NSError errorWithDomain:@"数据加载失败" code:error.code userInfo:error.userInfo];
+////                  if(errRep) errRep(NSError2RequestResult(err));
+//              }
+//         ];
+    }
     
 }
 
@@ -223,8 +281,8 @@ static inline RequestResult* NSError2RequestResult(NSError* error){
 }
 
 -(NetworkReachabilityStatus)getNetReachabilityStatus{
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    return manager.networkReachabilityStatus;
+    
+    return [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
 }
 
 
@@ -246,7 +304,7 @@ static inline RequestResult* NSError2RequestResult(NSError* error){
     httpClient.responseSerializer = [AFHTTPResponseSerializer serializer];
     httpClient.requestSerializer.timeoutInterval = 30;
     httpClient.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    [httpClient.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [httpClient.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [httpClient.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     return httpClient;

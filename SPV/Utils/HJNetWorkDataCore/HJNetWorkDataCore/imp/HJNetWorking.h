@@ -24,6 +24,8 @@
  */
 -(void)sendAsynPostRequest:(RequestParam *)param NetResp:(NetResp) netFunc Error:(ErrorResp) error;
 
+
+
 /**
  *  下载文件
  *

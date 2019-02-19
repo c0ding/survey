@@ -49,7 +49,7 @@
     });
     
     _image = ({
-        UIImageView *image = [[UIImageView alloc] initWithImage:kGetImage(@"tmp")];
+        UIImageView *image = [[UIImageView alloc] initWithImage:kGetImage(@"collect_status")];
         [self addSubview:image];
         image;
     });
@@ -60,11 +60,12 @@
 
 - (void)setupFrame {
     [_lab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.centerX.offset(0);
+        make.centerY.offset(0);
+        make.left.offset(kWidth(16));
     }];
     
     [_image mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_lab.mas_left).offset(-kWidth(16));
+        make.right.equalTo(self.mas_right).offset(-kWidth(16));
         make.centerY.offset(0);
     }];
 }

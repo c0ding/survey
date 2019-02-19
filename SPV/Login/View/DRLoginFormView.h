@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong)NSString *placeholder;
 @property (nonatomic ,strong)NSString *title;
+@property (nonatomic ,assign)BOOL secureTextEntry;
 
 typedef void(^TextChangeBlock) (NSString *str);
 @property (nonatomic,copy) TextChangeBlock textChangeBlock;

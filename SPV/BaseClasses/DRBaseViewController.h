@@ -11,7 +11,11 @@
 @class DRUpdateVersionModel;
 @interface DRBaseViewController : UIViewController<DRPlaceholderViewDelegate>
 @property (nonatomic, assign) BOOL haveNONavi;
+@property (nonatomic, strong) NSString *naviTitle;
 @property (nonatomic ,strong)LGAlertView *updateAlertView;
+
+
+-(void)setTitleView:(NSString *)title color:(BOOL)ifWhite;
 - (void)showBackBtnWithHiddelState:(BOOL )isHiddel;
 - (void)hiddenPlaceholderView;
 - (void)showPlaceholderViewWithImgName:(NSString *)imgName andTitle:(NSString *)title andSubTitle:(NSString *)subTitle andBtnTitle:(NSString *)btnTitle;

@@ -43,7 +43,7 @@
 - (void)initUI {
     _leftLab = ({
         UILabel *label = [[UILabel alloc] init];
-        label.font = [UIFont fontWithName:@"PingFangSC-Regular" size:font(15)];
+        label.font = [UIFont fontWithName:@"PingFangSC-Regular" size:font(labFont)];
         label.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1/1.0];
         [self.contentView addSubview:label];
         label.numberOfLines = 0;
@@ -79,13 +79,13 @@
     [_leftLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(kWidth(16));
         make.top.offset(kHeight(topMargin));
-        make.width.offset(kWidth(68));
+        make.width.offset(kWidth(60));
     }];
     
     [_leftLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_rightLab.mas_right).offset(0);
+        make.left.equalTo(_leftLab.mas_right).offset(kWidth(8));
         make.top.equalTo(_rightLab.mas_top).offset(0);
-        make.bottom.equalTo(_leftLab.mas_bottom).offset(0);
+        make.bottom.equalTo(_rightLab.mas_bottom).offset(0);
         make.width.offset(0.5);
     }];
     

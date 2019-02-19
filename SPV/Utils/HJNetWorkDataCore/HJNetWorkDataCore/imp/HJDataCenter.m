@@ -173,6 +173,8 @@ static inline NSString* MakeSQLKey(RequestParam* param){
     }
 }
 
+
+
 -(void) addSign:(RequestParam *)param{
     if(param.needSign){
         //! 加入时间戳
@@ -217,11 +219,14 @@ static inline NSString* MakeSQLKey(RequestParam* param){
  *  @param error   错误回调
  */
 -(void) handleNetData:(RequestParam *)param Parser:(ParseData)parser NetResp:(NetResp) netFunc Error:(ErrorResp) error{
-    if(NET_STATUS == NetworkReachabilityStatusNotReachable){
+//    || NET_STATUS == NetworkReachabilityStatusUnknow
+    if(NET_STATUS == NetworkReachabilityStatusNotReachable ){
         error([RequestResult create:param.cmd rsid:0 errorMsg:@"您还没连接上网络" errCode:-999]);
+//        [[[TopAlert alloc]init] setHeaderTitle:@"您还没连接上网络"];
         return;
     }
     
+
 //! debug下输出原始请求的get形式
 #ifdef DEBUG
     __block NSString* getRequest = [param.url stringByAppendingString:@"?"];

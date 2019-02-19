@@ -18,6 +18,18 @@
 ///版本更新
 - (NSDictionary *)updateVersionMock;
 
+
+// 主页尽调任务
+- (NSDictionary *)JDHomeMock;
+
+// 我的关注
+-(NSDictionary *)MyCollectMock;
+
+// 债券列表
+-(NSDictionary *)ZQListMock;
+
+
 /// 获取采集数据
 - (NSDictionary *)collectGet;
+
 @end

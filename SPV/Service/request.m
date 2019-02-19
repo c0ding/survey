@@ -26,8 +26,65 @@ NSString *combineUrl(NSString *cmd) {
 }
 @implementation request
 
-# pragma -mark 张逸阳
-# pragma mark - 版本更新
+- (void)loginWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode {
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+    [params setObject:deviceToken?:@"simulator-deviceToken" forKey:@"deviceToken"];
+    [params setObject:@"iOS" forKey:@"platform"];
+    NSString *UUIDString = [FCUUID uuidForDevice];
+    [params setObject:UUIDString?:@"" forKey:@"uuid"];
+    RequestParam *param = [RequestParam create:combineUrl(@"dueDiligence/login")
+                                         param:params
+                                           cmd:@"post"
+                                          type:CACHE_NONE];
+    
+    GetData(param,
+            nil ,nil,
+            ^(NSDictionary *jsonData,RequestResult *reslut){
+                DRBaseModel *model = [DRBaseModel mj_objectWithKeyValues:jsonData];
+                if (net) {
+                    net(model, reslut);
+                }
+            },
+            ^(RequestResult *err){
+                if (err.errcode==500) {
+                    if (errorCode) {
+                        errorCode(err.errcode);
+                    }
+                    return ;
+                }
+                if(error) error(err);
+            });
+}
+
+- (void)logoutWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode {
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+    [params setObject:deviceToken?:@"simulator-deviceToken" forKey:@"deviceToken"];
+    [params setObject:@"iOS" forKey:@"platform"];
+    NSString *UUIDString = [FCUUID uuidForDevice];
+    [params setObject:UUIDString?:@"" forKey:@"uuid"];
+    RequestParam *param = [RequestParam create:combineUrl(@"dueDiligence/logout")
+                                         param:params
+                                           cmd:@"post"
+                                          type:CACHE_NONE];
+    
+    GetData(param,
+            nil ,nil,
+            ^(NSDictionary *jsonData,RequestResult *reslut){
+                DRBaseModel *model = [DRBaseModel mj_objectWithKeyValues:jsonData];
+                if (net) {
+                    net(model, reslut);
+                }
+            },
+            ^(RequestResult *err){
+                if (err.errcode==500) {
+                    if (errorCode) {
+                        errorCode(err.errcode);
+                    }
+                    return ;
+                }
+                if(error) error(err);
+            });
+}
 
 @end
 

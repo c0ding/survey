@@ -20,6 +20,9 @@
 
 -(NSUInteger) sendAsynPostRequest:(RequestParam*) param ParseData:(ParseData)parser LocalResp:(LocalResp) localFunc NetResp:(NetResp) netFunc Error:(ErrorResp) error;
 
+
+
+
 -(void)downloadFile:(RequestParam*)param savePath:(NSURL*)savePath progress:(Progress) progressFunc finished:(DownloadFinished) finishFunc Error:(ErrorResp) error;
 
 -(void)uploadImage:(RequestParam*)param img:(UIImage*)img progress:(Progress) progressFunc finished:(UploadFinished) finishFunc Error:(ErrorResp) error;

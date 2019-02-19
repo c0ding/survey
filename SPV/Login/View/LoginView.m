@@ -12,6 +12,7 @@
 @interface LoginView()
 @property (nonatomic ,strong) UILabel *lab1;
 @property (nonatomic ,strong) UIImageView *image1;
+@property (nonatomic ,strong) UIImageView *image2;
 @property (nonatomic ,strong) DRLoginFormView *nameView;
 @property (nonatomic ,strong) DRLoginFormView *pwdView;
 @property (nonatomic ,strong) DRLoginBtnView *loginBtnView;
@@ -63,7 +64,13 @@
     });
     
     _image1 = ({
-        UIImageView *image = [[UIImageView alloc] initWithImage:kGetImage(@"tmp")];
+        UIImageView *image = [[UIImageView alloc] initWithImage:kGetImage(@"logo")];
+        [self addSubview:image];
+        image;
+    });
+    
+    _image2 = ({
+        UIImageView *image = [[UIImageView alloc] initWithImage:kGetImage(@"login_bottom_img")];
         [self addSubview:image];
         image;
     });
@@ -80,6 +87,7 @@
     _pwdView = [[DRLoginFormView alloc] init];
     _pwdView.placeholder = @"请输入密码";
     _pwdView.title = @"密码   ";
+    _pwdView.secureTextEntry = YES;
     _pwdView.textChangeBlock = ^(NSString * _Nonnull str) {
         weakSelf.pwdStr = str;
         
@@ -110,6 +118,11 @@
     [_image1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(kHeight(146));
         make.left.equalTo(self.mas_left).offset(kWidth(24));
+    }];
+    
+    [_image2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.mas_bottom).offset(0);
+        make.left.equalTo(self.mas_left).offset(0);
     }];
     
     [_lab1 mas_makeConstraints:^(MASConstraintMaker *make) {

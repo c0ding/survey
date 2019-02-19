@@ -53,7 +53,8 @@
     _leftBtn = ({
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:btn];
-        [btn setImage:kGetImage(@"tmp") forState:UIControlStateNormal];
+        [btn setImage:kGetImage(@"nav_b_close_n") forState:UIControlStateNormal];
+        [btn setImage:kGetImage(@"nav_b_close_s") forState:UIControlStateHighlighted];
         [btn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
         btn;
     });

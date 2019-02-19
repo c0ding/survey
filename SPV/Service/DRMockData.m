@@ -123,6 +123,130 @@ static DRMockData *_instance;
              };
 }
 
+
+
+#pragma mark == 尽调任务
+- (NSDictionary *)JDHomeMock {
+    return @{
+             @"assignmentList":@[
+                     @{
+                         @"time":@"第一季度",
+                         @"timeList":@[
+                                 @{
+                                      @"assignmentName":@"福建建行债权包2",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包3",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包4",
+                                     }
+                                
+                                 ],
+                        
+                         },
+                     @{
+                         @"time":@"第二季度",
+                         @"timeList":@[
+                                 @{
+                                     @"assignmentName":@"福建建行债权包2",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包3",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包4",
+                                     }
+                                 
+                                 ],
+                         
+                         },
+                     @{
+                         @"time":@"第三季度",
+                         @"timeList":@[
+                                 @{
+                                     @"assignmentName":@"福建建行债权包2",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包3",
+                                     },
+                                 @{
+                                     @"assignmentName":@"福建建行债权包4",
+                                     }
+                                 
+                                 ],
+                         
+                         }
+                     
+                     
+                     ]
+             
+             };
+}
+
+
+-(NSDictionary *)MyCollectMock {
+    return @{
+             @"collectList":@[
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@0,
+                         @"type":@"工业",
+                         @"ifCollect":@0
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@1,
+                         @"type":@"工业",
+                         @"ifCollect":@1
+                        
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@2,
+                         @"type":@"工业",
+                         @"ifCollect":@1
+                         }
+                     
+                     ]
+             
+             };
+}
+
+
+-(NSDictionary *)ZQListMock {
+    return @{
+             @"ZQList":@[
+                     @{
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"amoutCount":@5,
+                         @"currentCount":@1,
+
+
+                         },
+                     @{
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"amoutCount":@6,
+                         @"currentCount":@1,
+
+
+                         },
+                     @{
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"amoutCount":@5,
+                         @"currentCount":@0,
+                         }
+
+                     ]
+             };
+}
+
+             
 #pragma mark == 获取采集数据
 - (NSDictionary *)collectGet{
     
@@ -134,12 +258,40 @@ static DRMockData *_instance;
                      @"type":@"抵押物类型",
                      @"dataList":@[
                              @{
-                                 @"name":@"左边名字1",
+                                 @"name":@"左边名字名字1",
                                  @"param":@"param回传使用",
-                                 @"type":@2,
-                                 @"content":@"s右边内容右边右边右边右边内容右边内容右边内容",
+                                 @"type":@6,
+                                 @"content":@"123",
                                  @"needTransform":@1,
-                                 @"select":@[],
+                                 @"select":@[
+                                         @{
+                                             @"key":@"123",
+                                             @"value":@"商铺0"
+                                             },
+                                         @{
+                                             @"key":@"124",
+                                             @"value":@"商铺1"
+                                             },
+                                         @{
+                                             @"key":@"125",
+                                             @"value":@"商铺1"
+                                             },
+                                         @{
+                                             @"key":@"126",
+                                             @"value":@"商铺1"
+                                             },
+                                         @{
+                                             @"key":@"127",
+                                             @"value":@"商铺1"
+                                             },
+                                         @{
+                                             @"key":@"128",
+                                             @"value":@"商铺1"
+                                             },
+                                         
+                                         
+                                         
+                                         ],
                                  @"attachmentList":@[
                                          @{
                                              @"name":@"",
@@ -151,7 +303,7 @@ static DRMockData *_instance;
                              
                              
                              @{
-                                 @"name":@"左边名字",
+                                 @"name":@"左边名字左边名字名字",
                                  @"param":@"param回传使用",
                                  @"type":@2,
                                  @"content":@"s右边内容",
@@ -186,6 +338,7 @@ static DRMockData *_instance;
                      
                      
                      }
+
              };
 }
 @end

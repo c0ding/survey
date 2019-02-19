@@ -32,7 +32,7 @@
     [super viewDidLoad];
     [self setupUI];
     // 切换环境
-    [self netConfig];
+//    [self netConfig];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,14 +52,17 @@
 
 - (void)loginViewLoginBtnClickWithUserName:(NSString *)userName andPwd:(NSString *)pwd {
     
-    if ([userName isEqualToString:@"a"]) {
-         [[[TopAlert alloc]initWithStyle:[UIColor blackColor]] setHeaderTitle:@"登录失败，请重新尝试"];
-        return;
-    }
-    
-//    [UIApplication sharedApplication].keyWindow.rootViewController = baseNav;
-    
-    [self presentViewController:self.baseNav animated:YES completion:nil];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:userName forKey:@"userName"];
+    [dict setValue:pwd forKey:@"password"];
+    WEAKSELF
+    [[request new] loginWithParams:dict net:^(DRBaseModel *data, RequestResult *result) {
+        if (![data.code isEqualToString:@"200"]) {
+            [[[TopAlert alloc]initWithStyle:[UIColor blackColor]] setHeaderTitle:data.errorMsg];
+            return ;
+        }
+        [weakSelf presentViewController:weakSelf.baseNav animated:YES completion:nil];
+    } error:nil handleErrorCode:nil];
 }
 
 - (DRBaseNavigationViewController *)baseNav {
@@ -94,18 +97,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.loginView.frame = self.view.bounds;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /// 选择url；/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

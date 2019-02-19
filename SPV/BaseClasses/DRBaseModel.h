@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface DRBaseModel : NSObject
-@property (nonatomic ,strong)NSString *msg;
+@property (nonatomic ,strong)NSString *errorMsg;
 @property (nonatomic ,strong)NSString *code;
 @end

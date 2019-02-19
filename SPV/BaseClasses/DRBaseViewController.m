@@ -53,8 +53,42 @@
     }else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 32)];
+//    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
+    [btn setImage:[UIImage imageNamed:@"naviBack"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    
+    
+    
 }
 
+-(void)setTitleView:(NSString *)titleStr color:(BOOL)ifWhite
+{
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 30)];
+    self.navigationItem.titleView = titleView;
+    
+    UILabel *title = [UILabel new];
+    [titleView addSubview:title];
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(0);
+        make.centerY.equalTo(titleView.mas_centerY);
+        make.height.offset(24);
+    }];
+    [title setText:titleStr];
+    [title setTextColor:ifWhite?[UIColor whiteColor]:[UIColor blackColor]];
+    [title setFont:[UIFont regulerApplicationFontOfSize:font(17)]];
+    
+    
+}
+
+-(void)btnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)hiddenPlaceholderView {
     [self.placeholderView removeFromSuperview];

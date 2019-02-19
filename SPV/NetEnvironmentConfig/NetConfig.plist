@@ -4,11 +4,11 @@
 <array>
 	<dict>
 		<key>netName</key>
-		<string>开发环境-中权本地</string>
+		<string>联调</string>
 		<key>netUrl</key>
-		<string>http://192.168.149.33:8082/</string>
+		<string>http://192.168.33.48:8092/</string>
 		<key>isCurrent</key>
-		<false/>
+		<true/>
 	</dict>
 	<dict>
 		<key>netName</key>
@@ -24,7 +24,7 @@
 		<key>netUrl</key>
 		<string>http://121.196.201.245:8083/</string>
 		<key>isCurrent</key>
-		<true/>
+		<false/>
 	</dict>
 	<dict>
 		<key>netName</key>

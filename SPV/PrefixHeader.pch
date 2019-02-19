@@ -32,7 +32,7 @@
 #import "JYHColor.h"
 #import "DRSaveAndReadUserDefault.h"
 #import "NSDictionary+EmptyString.h"
-
+#import "DRCookiesManager.h"
 
 
 typedef NS_ENUM(NSInteger, homeLabelType)
