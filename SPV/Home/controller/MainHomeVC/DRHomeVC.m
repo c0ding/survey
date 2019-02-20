@@ -12,6 +12,7 @@
 #import "LoginVC.h"
 #import "DRJDHomeViewController.h"
 #import "DRCollectViewController.h"
+#import "DRCollectVC.h"
 @interface DRHomeVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) DRProfileHomeViewController *profileHomeVC;
 @property (nonatomic,strong) LoginVC *loginVC;
@@ -27,6 +28,7 @@
     UIButton *firstBtn;  //尽调任务
     UIButton *secondBtn; // 我的关注
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -187,6 +189,10 @@
 }
 
 - (void)maskAnimationFromRight {
+    
+    [self presentViewController:[DRCollectVC new] animated:YES completion:nil];
+    return;
+    
     CWLateralSlideConfiguration *conf = [CWLateralSlideConfiguration defaultConfiguration];
     conf.direction = CWDrawerTransitionFromRight;
     conf.showAnimDuration = 0.5f;

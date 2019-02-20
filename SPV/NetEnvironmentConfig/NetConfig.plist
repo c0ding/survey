@@ -6,7 +6,7 @@
 		<key>netName</key>
 		<string>联调</string>
 		<key>netUrl</key>
-		<string>http://192.168.33.48:8092/</string>
+		<string>http://192.168.200.33:8092/</string>
 		<key>isCurrent</key>
 		<true/>
 	</dict>

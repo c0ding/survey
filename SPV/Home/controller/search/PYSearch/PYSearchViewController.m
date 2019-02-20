@@ -268,7 +268,7 @@
     // 搜索历史缓存路径
     self.searchHistoriesCachePath = PYSearchHistoriesPath;
     
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 24, Count(52), 36)];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,[[UIApplication sharedApplication] statusBarFrame].size.height, Count(52), 36)];
     [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     
     [backBtn addTarget:self action:@selector(cancelDidClick) forControlEvents:UIControlEventTouchUpInside];
@@ -276,7 +276,7 @@
     // 创建搜索框
     UIView *titleView = [[UIView alloc] init];
     titleView.py_x = Count(52);
-    titleView.py_y = 24;
+    titleView.py_y = [[UIApplication sharedApplication] statusBarFrame].size.height;
     titleView.py_width = self.view.py_width - 68;
     titleView.py_height = 36;
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
@@ -298,7 +298,7 @@
     // 设置头部（热门搜索）
     UIView *headerView = [[UIView alloc] init];
     UIView *contentView = [[UIView alloc] init];
-    contentView.py_y = kHeight(88);
+    contentView.py_y =  kHeight(88);
     contentView.py_x = PYMargin * 1.5;
     contentView.py_width = PYScreenW - contentView.py_x * 2;
     [headerView addSubview:contentView];

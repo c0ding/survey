@@ -32,4 +32,11 @@
 /// 获取采集数据
 - (NSDictionary *)collectGet;
 
+
+
+
+// 列表数字圆圈，
+-(NSArray *) numberCircle;
+
+
 @end

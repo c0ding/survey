@@ -18,4 +18,6 @@
 @interface LoginView : UIView
 @property (nonatomic ,weak)id <LoginViewDelegate>delegate;
 + (instancetype)loginView;
+- (void)checkout ;
+- (void)userName:(NSString *)userName andPwd:(NSString *)pwd ;
 @end

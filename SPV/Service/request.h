@@ -13,6 +13,7 @@
 #import "DRPersonalCenterModel.h"
 #import "DRUpdateVersionModel.h"
 #import "DRCollectGetModel.h"
+#import "DRJDHomeModel.h"
 typedef void(^dataResponse)(id data,RequestResult *result);
 typedef void(^localResponse)(id data);
 typedef void(^errorResponse)(RequestResult *result);
@@ -24,4 +25,8 @@ typedef void(^handleErrorCodeReponse)(NSUInteger errorCode);
 - (void)loginWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
 
 - (void)logoutWithParams:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+
+
+
+- (void)getHomeModel:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
 @end

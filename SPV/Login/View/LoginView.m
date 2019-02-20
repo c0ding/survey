@@ -29,7 +29,13 @@
 
 }
 
-
+- (void)userName:(NSString *)userName andPwd:(NSString *)pwd {
+    _userNameStr = userName;
+    _pwdStr = pwd;
+    _nameView.content = userName;
+    _pwdView.content = pwd;
+    [self checkout];
+}
 
 
 
@@ -41,6 +47,7 @@
     self.loginBtnView.progressValue = loginBtnEnabled?@"1":@"0";
     self.loginBtnView.userInteractionEnabled = loginBtnEnabled;
 }
+
 
 #pragma mark - 初始化
 - (instancetype)init {
@@ -78,6 +85,7 @@
     _nameView = [[DRLoginFormView alloc] init];
     _nameView.placeholder = @"请输入用户名";
     _nameView.title = @"用户名";
+    
     _nameView.textChangeBlock = ^(NSString * _Nonnull str) {
         weakSelf.userNameStr = str;
         [weakSelf checkout];
@@ -88,6 +96,7 @@
     _pwdView.placeholder = @"请输入密码";
     _pwdView.title = @"密码   ";
     _pwdView.secureTextEntry = YES;
+    
     _pwdView.textChangeBlock = ^(NSString * _Nonnull str) {
         weakSelf.pwdStr = str;
         

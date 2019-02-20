@@ -11,6 +11,8 @@
 #import "DRDropMainView.h"
 #import "DRCollectCellA.h"
 #import "DRCollectSheetMainView.h"
+#import "DRDatePicker.h"
+#import "LXKeyBoard.h"
 @interface DRCollectVC ()<UITableViewDelegate ,UITableViewDataSource>
 
 @property (nonatomic ,strong)UIView *maskView;
@@ -20,8 +22,10 @@
 
 @property (nonatomic ,strong)DRBaseTableView *tableView;
 @property (nonatomic ,strong) NSArray<NSString*>*sectionHTittles;
-
+@property(nonatomic,strong)LXKeyBoard *keyboard;
 @property (nonatomic ,strong) DRCollectGetModel *collectGetModel;
+
+
 @end
 
 @implementation DRCollectVC
@@ -30,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view addSubview:self.keyboard];
     NSDictionary *dict = [[DRMockData shareDRMockData] collectGet];
     _collectGetModel = [DRCollectGetModel mj_objectWithKeyValues: dict ];
     
@@ -161,6 +165,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
+    switch (dataModel.type) {
+        case 1: {
+            DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+            cell.leftTittle = dataModel.name;
+            cell.rightTittle = dataModel.content;
+            cell.inputAccessoryView
+            
+            return cell;
+        }
+        case 2: {
+            
+            break;
+        }
+        case 3: {
+            
+            break;
+        }
+        case 4: {
+            
+            break;
+        }
+        case 5: {
+            
+            break;
+        }case 6: {
+            
+            break;
+        }case 7: {
+            
+            break;
+        }case 8: {
+            
+            break;
+        }
+    }
+    
+    
+    
+    
+    
+    
     if (dataModel.type == 6) {
         DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
         for (SelectModel*selectModel in dataModel.select) {
@@ -181,38 +226,54 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [self.keyboard.textView becomeFirstResponder];
+    return;
+    
     if (indexPath.section == 0) {
-        
-        
         DataModel *dataModel = _collectGetModel.data.dataList[indexPath.row];
-        NSMutableArray *arr = [NSMutableArray array];
-        for (SelectModel*selectModel in dataModel.select) {
-            [arr addObject:selectModel.value];
-            
-        }
-        DRCollectSheetMainView *collectSheetMainView = [[DRCollectSheetMainView alloc] initWithFrame:self.view.frame];
-        collectSheetMainView.contents = arr;
-        [collectSheetMainView show];
-        collectSheetMainView.tittle = @"湘雅医院晕";
-
-        // 查询当前选择
-        for (int i=0; i<dataModel.select.count; i++) {
-           SelectModel *selectModel = dataModel.select[i];
-            if ([dataModel.content isEqualToString:selectModel.key]) {
-                collectSheetMainView.currertSlectIndex = i;
+        switch (dataModel.type) {
+            case 5:{
+                DRDatePicker* datePicker= [[DRDatePicker alloc]initWithFrame:self.view.frame];
+                datePicker.title = @"使用年限";
+                datePicker.dateChooseCallBack = ^(NSString * _Nonnull date) {
+                    NSLog(@"%@",date);
+                };
+                [datePicker show];
+                break;
+            }
+                
+            case 6:{
+                NSMutableArray *arr = [NSMutableArray array];
+                for (SelectModel*selectModel in dataModel.select) {
+                    [arr addObject:selectModel.value];
+                    
+                }
+                DRCollectSheetMainView *collectSheetMainView = [[DRCollectSheetMainView alloc] initWithFrame:self.view.frame];
+                collectSheetMainView.contents = arr;
+                [collectSheetMainView show];
+                collectSheetMainView.tittle = @"湘雅医院晕";
+                
+                // 查询当前选择
+                for (int i=0; i<dataModel.select.count; i++) {
+                    SelectModel *selectModel = dataModel.select[i];
+                    if ([dataModel.content isEqualToString:selectModel.key]) {
+                        collectSheetMainView.currertSlectIndex = i;
+                        break;
+                    }
+                }
+                collectSheetMainView.sheetMainBlock = ^(NSInteger index, NSString * _Nonnull text) {
+                    NSLog(@"当前选中了第%ld个对象，内容：%@",index,text);
+                    // 更改选择
+                    SelectModel *selectModel = dataModel.select[index];
+                    dataModel.content = selectModel.key;
+                    
+                    [tableView cellForRowAtIndexPath:indexPath];
+                    //            collectSheetMainView.currertSlectIndex =
+                    
+                };
                 break;
             }
         }
-        collectSheetMainView.sheetMainBlock = ^(NSInteger index, NSString * _Nonnull text) {
-            NSLog(@"当前选中了第%ld个对象，内容：%@",index,text);
-            // 更改选择
-            SelectModel *selectModel = dataModel.select[index];
-            dataModel.content = selectModel.key;
-            
-            [tableView cellForRowAtIndexPath:indexPath];
-//            collectSheetMainView.currertSlectIndex =
-            
-        };
     }
     
     
@@ -237,6 +298,26 @@
         _maskView = view;
     }
     return _maskView;
+}
+
+
+-(LXKeyBoard *)keyboard{
+    if (!_keyboard) {
+        _keyboard =[[LXKeyBoard alloc]initWithFrame:CGRectZero];
+        _keyboard.backgroundColor =[UIColor whiteColor];
+        _keyboard.maxLine = 3;
+        _keyboard.font = [UIFont systemFontOfSize:font(18)];
+        _keyboard.topOrBottomEdge = 10;
+        [_keyboard beginUpdateUI];
+        
+        
+        _keyboard.sendBlock = ^(NSString *text) {
+            NSLog(@"%@",text);
+//            weakSelf.resultLabel.text = text;
+//            [weakSelf.resultLabel sizeThatFits:CGSizeMake(Device_Width - 40, MAXFLOAT)];
+        };
+    }
+    return _keyboard;
 }
 
 @end

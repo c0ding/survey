@@ -9,8 +9,8 @@
 #import "DRZQListViewController.h"
 #import "DRMockData.h"
 #import "DRZQListModel.h"
-
-
+#import "DRZQTableViewCell.h"
+#import "DRDYWViewController.h"
 @interface DRZQListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -45,8 +45,29 @@
     ZQListTable = [[DRBaseTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NaviHeight) style:UITableViewStyleGrouped];
     ZQListTable.delegate = self;
     ZQListTable.dataSource = self;
-    [ZQListTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ZQ"];
+    [ZQListTable registerClass:[DRZQTableViewCell class] forCellReuseIdentifier:@"ZQ"];
+    [ZQListTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview:ZQListTable];
+    [self tableViewHeadCreate];
+    
+}
+
+-(void)tableViewHeadCreate
+{
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeight(37))];
+    [headView setBackgroundColor:getUIColor(0xF2F2F2)];
+    ZQListTable.tableHeaderView = headView;
+    UILabel *titleLabel = [UILabel new];
+    [headView addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(kWidth(16));
+        make.centerY.equalTo(headView.mas_centerY);
+        make.height.offset(kHeight(21));
+    }];
+    [titleLabel setText:[NSString stringWithFormat:@"债权(%ld)",model.ZQList.count]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:font(15)]];
+    [titleLabel setTextColor:getUIColor(0x26231E)];
+    
     
 }
 
@@ -63,9 +84,20 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZQ" forIndexPath:indexPath];
+    DRZQListDetailModel *modelList = model.ZQList[indexPath.row];
+    DRZQTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZQ" forIndexPath:indexPath];
+    cell.tag = indexPath.row + 1;
+    cell.model= modelList;
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    DRDYWViewController *DYWVC = [[DRDYWViewController alloc] init];
+    [self.navigationController pushViewController:DYWVC animated:YES];
+}
 
 @end

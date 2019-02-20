@@ -86,6 +86,37 @@ NSString *combineUrl(NSString *cmd) {
             });
 }
 
+
+
+
+//------------------------------------------黄梦炜 ------------------------------------------
+
+-(void)getHomeModel:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode
+{
+    RequestParam *param = [RequestParam create:combineUrl(@"dueDiligence/assetPackage")
+                                         param:@{}
+                                           cmd:@"get"
+                                          type:CACHE_NONE];
+    
+    GetData(param,
+            nil ,nil,
+            ^(NSDictionary *jsonData,RequestResult *reslut){
+                DRJDHomeModel *model = [DRJDHomeModel mj_objectWithKeyValues:jsonData];
+                if (net) {
+                    net(model, reslut);
+                }
+            },
+            ^(RequestResult *err){
+                if (err.errcode==500) {
+                    if (errorCode) {
+                        errorCode(err.errcode);
+                    }
+                    return ;
+                }
+                if(error) error(err);
+            });
+}
+
 @end
 
 

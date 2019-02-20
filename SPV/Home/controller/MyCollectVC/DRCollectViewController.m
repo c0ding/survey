@@ -40,6 +40,7 @@
     collectTable.delegate = self;
     collectTable.dataSource = self;
     [self.view addSubview:collectTable];
+    [collectTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [collectTable registerClass:[DRCollectTableViewCell class] forCellReuseIdentifier:@"collection"];
     collectTable.tableFooterView = [UIView new];
     [self tableViewHeadCreate];

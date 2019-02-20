@@ -71,8 +71,8 @@ static inline RequestResult* NSError2RequestResult(NSError* error){
             [DRCookiesManager saveCookies];
             netFunc(json , res);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            NSError *err = [NSError errorWithDomain:@"数据加载失败" code:error.code userInfo:error.userInfo];
-            //                  if(errRep) errRep(NSError2RequestResult(err));
+            NSError *err = [NSError errorWithDomain:@"数据加载失败" code:error.code userInfo:error.userInfo];
+                              if(errRep) errRep(NSError2RequestResult(err));
         }];
     }
     else {

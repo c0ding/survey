@@ -107,6 +107,17 @@
     [ifCollectLabel setFont:[UIFont regulerApplicationFontOfSize:font(13)]];
     [ifCollectLabel setTextColor:getUIColor(0xE5E5E5)];
     
+    
+    UIView *lineView = [UIView new];
+    [contentView addSubview:lineView];
+    
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(0);
+        make.right.offset(0);
+        make.bottom.offset(0);
+        make.height.offset(0.5);
+    }];
+    [lineView setBackgroundColor:getUIColor(0xE5E5E5)];
 }
 
 

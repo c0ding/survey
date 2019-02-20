@@ -41,7 +41,9 @@
 - (void)setTitle:(NSString *)title {
     _lab.text = title;
 }
-
+- (void)setContent:(NSString *)content {
+    _text.text = content;
+}
 - (void)setPlaceholder:(NSString *)placeholder {
     _text.placeholder = placeholder;
 }

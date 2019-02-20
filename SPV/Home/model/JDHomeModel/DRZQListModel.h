@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DRZQListDetailModel : NSObject
 @property (nonatomic ,strong) NSString *name;
-@property (nonatomic, assign) NSInteger amoutCount;
-@property (nonatomic, assign) NSInteger currentCount;
+@property (nonatomic, assign) CGFloat amoutCount;
+@property (nonatomic, assign) CGFloat currentCount;
 
 @end
 NS_ASSUME_NONNULL_END

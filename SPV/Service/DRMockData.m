@@ -211,6 +211,54 @@ static DRMockData *_instance;
                          @"projectType":@2,
                          @"type":@"工业",
                          @"ifCollect":@1
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@0,
+                         @"type":@"工业",
+                         @"ifCollect":@0
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@1,
+                         @"type":@"工业",
+                         @"ifCollect":@1
+                         
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@2,
+                         @"type":@"工业",
+                         @"ifCollect":@1
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@0,
+                         @"type":@"工业",
+                         @"ifCollect":@0
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@1,
+                         @"type":@"工业",
+                         @"ifCollect":@1
+                         
+                         
+                         },
+                     @{
+                         @"time":@"2018/5/25",
+                         @"name":@"浙江岱山县岱西仇家门",
+                         @"projectType":@2,
+                         @"type":@"工业",
+                         @"ifCollect":@1
                          }
                      
                      ]
@@ -258,6 +306,54 @@ static DRMockData *_instance;
                      @"type":@"抵押物类型",
                      @"dataList":@[
                              @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@1,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[],
+                                 },
+                             
+                             @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@2,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[],
+                                 },
+                             @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@3,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[],
+                                 },
+                             
+                             @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@4,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[],
+                                 },
+                             @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@5,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[ ],
+                                 
+                                 },
+                             @{
                                  @"name":@"左边名字名字1",
                                  @"param":@"param回传使用",
                                  @"type":@6,
@@ -301,11 +397,21 @@ static DRMockData *_instance;
                                  
                                  },
                              
+                             @{
+                                 @"name":@"左边名字左边名字名字",
+                                 @"param":@"param回传使用",
+                                 @"type":@7,
+                                 @"content":@"s右边内容",
+                                 @"needTransform":@1,
+                                 @"select":@[],
+                                 @"attachmentList":@[],
+                                 
+                                 },
                              
                              @{
                                  @"name":@"左边名字左边名字名字",
                                  @"param":@"param回传使用",
-                                 @"type":@2,
+                                 @"type":@8,
                                  @"content":@"s右边内容",
                                  @"needTransform":@1,
                                  @"select":@[],
@@ -317,6 +423,8 @@ static DRMockData *_instance;
                                          ],
                                  
                                  },
+                             
+                            
                              
                              
                              
@@ -341,4 +449,13 @@ static DRMockData *_instance;
 
              };
 }
+
+
+// 圆圈数字。①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+-(NSArray *)numberCircle
+{
+    return @[@"①",@"②",@"③", @"④",@"⑤",@"⑥",@"⑦",@"⑧",@"⑨",@"⑩",@"⑪",@"⑫",@"⑬",@"⑭",@"⑮",@"⑯",@"⑰",@"⑱",@"⑲",@"⑳"];
+}
+
+
 @end

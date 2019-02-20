@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DRJDHomeModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray<DRAssignmentListModel*> *assignmentList;
+@property (nonatomic, strong) NSMutableArray<DRAssignmentListModel*> *data;
 
 
 @end
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DRAssignmentListModel : NSObject
 
 @property (nonatomic, strong)NSString *time;
-@property (nonatomic, strong) NSMutableArray<DRTimeListModel*> *timeList;
+@property (nonatomic, strong) NSMutableArray<DRTimeListModel*> *list;
 
 @end
 
@@ -28,7 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface DRTimeListModel : NSObject
-@property (nonatomic, strong)NSString *assignmentName;
+@property (nonatomic, strong)NSString *assignId;
+
+@property (nonatomic, strong)NSString *name;
 
 @end
 

@@ -77,6 +77,9 @@
 		547B95051FDE1B9600038B68 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547B95021FDE1B9100038B68 /* Charts.framework */; };
 		547B95061FDE1B9600038B68 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 547B95021FDE1B9100038B68 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54801F4B20A3E85200E91330 /* DRDialogueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54801F4A20A3E85200E91330 /* DRDialogueCell.m */; };
+		548B01CB221D176A005A781B /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01C7221D176A005A781B /* NSDate+Ex.m */; };
+		548B01CC221D176A005A781B /* NSDate+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01CA221D176A005A781B /* NSDate+Search.m */; };
+		548B01D2221D17E4005A781B /* DRDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01D1221D17E4005A781B /* DRDatePicker.m */; };
 		54906A522006FCCE0040254E /* CALayer+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A4E2006FCCE0040254E /* CALayer+Transition.m */; };
 		54906A532006FCCE0040254E /* XTGuidePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A502006FCCE0040254E /* XTGuidePagesViewController.m */; };
 		549815921F628C1F00DA0A9D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 549815911F628C1F00DA0A9D /* Reachability.m */; };
@@ -246,6 +249,9 @@
 		C284D289221AB064002C4DD0 /* HJRequestDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = C284D27F221AB064002C4DD0 /* HJRequestDefine.m */; };
 		C284D28A221AB064002C4DD0 /* HJDataInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C284D280221AB064002C4DD0 /* HJDataInterface.m */; };
 		C284D28B221AB065002C4DD0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C284D283221AB064002C4DD0 /* README.md */; };
+		C284D28F221B92F8002C4DD0 /* DRZQTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C284D28E221B92F8002C4DD0 /* DRZQTableViewCell.m */; };
+		C284D293221B9D6A002C4DD0 /* DRHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C284D292221B9D6A002C4DD0 /* DRHomeTableViewCell.m */; };
+		C284D297221BCF99002C4DD0 /* DRDYWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C284D296221BCF99002C4DD0 /* DRDYWViewController.m */; };
 		C2B7CCA31FDAA5FB009F201C /* DRHaveSmall.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CCA21FDAA5FB009F201C /* DRHaveSmall.m */; };
 		C2B7CCCD1FDD02AC009F201C /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CCCC1FDD02AC009F201C /* UICountingLabel.m */; };
 		C2BD51D51FEA2DAC00A1AF8E /* NSDictionary+EmptyString.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD51D31FEA2DAB00A1AF8E /* NSDictionary+EmptyString.m */; };
@@ -417,6 +423,12 @@
 		547B94FC1FDE1B9100038B68 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		54801F4920A3E85200E91330 /* DRDialogueCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDialogueCell.h; sourceTree = "<group>"; };
 		54801F4A20A3E85200E91330 /* DRDialogueCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDialogueCell.m; sourceTree = "<group>"; };
+		548B01C7221D176A005A781B /* NSDate+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ex.m"; sourceTree = "<group>"; };
+		548B01C8221D176A005A781B /* NSDate+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Search.h"; sourceTree = "<group>"; };
+		548B01C9221D176A005A781B /* NSDate+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ex.h"; sourceTree = "<group>"; };
+		548B01CA221D176A005A781B /* NSDate+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Search.m"; sourceTree = "<group>"; };
+		548B01D0221D17E4005A781B /* DRDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDatePicker.h; sourceTree = "<group>"; };
+		548B01D1221D17E4005A781B /* DRDatePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDatePicker.m; sourceTree = "<group>"; };
 		54906A4D2006FCCE0040254E /* CALayer+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Transition.h"; sourceTree = "<group>"; };
 		54906A4E2006FCCE0040254E /* CALayer+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Transition.m"; sourceTree = "<group>"; };
 		54906A4F2006FCCE0040254E /* XTGuidePagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTGuidePagesViewController.h; sourceTree = "<group>"; };
@@ -737,6 +749,12 @@
 		C284D281221AB064002C4DD0 /* HJRequestDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJRequestDefine.h; sourceTree = "<group>"; };
 		C284D282221AB064002C4DD0 /* HJDataInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDataInterface.h; sourceTree = "<group>"; };
 		C284D283221AB064002C4DD0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C284D28D221B92F8002C4DD0 /* DRZQTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRZQTableViewCell.h; sourceTree = "<group>"; };
+		C284D28E221B92F8002C4DD0 /* DRZQTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRZQTableViewCell.m; sourceTree = "<group>"; };
+		C284D291221B9D6A002C4DD0 /* DRHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRHomeTableViewCell.h; sourceTree = "<group>"; };
+		C284D292221B9D6A002C4DD0 /* DRHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRHomeTableViewCell.m; sourceTree = "<group>"; };
+		C284D295221BCF99002C4DD0 /* DRDYWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDYWViewController.h; sourceTree = "<group>"; };
+		C284D296221BCF99002C4DD0 /* DRDYWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDYWViewController.m; sourceTree = "<group>"; };
 		C2B7CCA11FDAA5FB009F201C /* DRHaveSmall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRHaveSmall.h; sourceTree = "<group>"; };
 		C2B7CCA21FDAA5FB009F201C /* DRHaveSmall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRHaveSmall.m; sourceTree = "<group>"; };
 		C2B7CCCB1FDD02AC009F201C /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
@@ -886,18 +904,13 @@
 		541481832213B16C0075B927 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				548B01CF221D17BD005A781B /* datePick */,
+				548B01CE221D17AE005A781B /* sheet */,
+				548B01CD221D1798005A781B /* drop */,
 				541481872213B3030075B927 /* DRCollectNavView.h */,
 				541481882213B3030075B927 /* DRCollectNavView.m */,
-				5414818B2213E3870075B927 /* DRCollectDropView.h */,
-				5414818C2213E3870075B927 /* DRCollectDropView.m */,
-				5414818F2213E6BF0075B927 /* DRDropMainView.h */,
-				541481902213E6BF0075B927 /* DRDropMainView.m */,
 				543CEFD62216864E00E60E83 /* DRCollectCellA.h */,
 				543CEFD72216864E00E60E83 /* DRCollectCellA.m */,
-				543CF013221A5B7400E60E83 /* DRCollectSheetMainView.h */,
-				543CF014221A5B7400E60E83 /* DRCollectSheetMainView.m */,
-				54395BB6221A866800F1457A /* DRCollectSheetMainCell.h */,
-				54395BB7221A866800F1457A /* DRCollectSheetMainCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1046,6 +1059,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		548B01C6221D176A005A781B /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				548B01C8221D176A005A781B /* NSDate+Search.h */,
+				548B01CA221D176A005A781B /* NSDate+Search.m */,
+				548B01C9221D176A005A781B /* NSDate+Ex.h */,
+				548B01C7221D176A005A781B /* NSDate+Ex.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		548B01CD221D1798005A781B /* drop */ = {
+			isa = PBXGroup;
+			children = (
+				5414818B2213E3870075B927 /* DRCollectDropView.h */,
+				5414818C2213E3870075B927 /* DRCollectDropView.m */,
+				5414818F2213E6BF0075B927 /* DRDropMainView.h */,
+				541481902213E6BF0075B927 /* DRDropMainView.m */,
+			);
+			path = drop;
+			sourceTree = "<group>";
+		};
+		548B01CE221D17AE005A781B /* sheet */ = {
+			isa = PBXGroup;
+			children = (
+				543CF013221A5B7400E60E83 /* DRCollectSheetMainView.h */,
+				543CF014221A5B7400E60E83 /* DRCollectSheetMainView.m */,
+				54395BB6221A866800F1457A /* DRCollectSheetMainCell.h */,
+				54395BB7221A866800F1457A /* DRCollectSheetMainCell.m */,
+			);
+			path = sheet;
+			sourceTree = "<group>";
+		};
+		548B01CF221D17BD005A781B /* datePick */ = {
+			isa = PBXGroup;
+			children = (
+				548B01D0221D17E4005A781B /* DRDatePicker.h */,
+				548B01D1221D17E4005A781B /* DRDatePicker.m */,
+			);
+			path = datePick;
+			sourceTree = "<group>";
+		};
 		54906A4B2006FCCE0040254E /* GuidePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1151,6 +1206,8 @@
 		54C47FC92202C38300E7C99F /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C284D290221B9D4D002C4DD0 /* DRHomeViewCell */,
+				C284D28C221B92E0002C4DD0 /* ZQView */,
 				C284D264221A8409002C4DD0 /* MyCollectView */,
 				54C47FDE2202CA1F00E7C99F /* TableViewWidget */,
 				54C47FCE2202C38F00E7C99F /* CWLateralSlide */,
@@ -1506,6 +1563,7 @@
 		A12CA9E51E67E74A00ADC3C1 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				548B01C6221D176A005A781B /* NSDate */,
 				5441B61F1FD95F5500FC3380 /* UIApplication+ZZAdd.h */,
 				5441B61E1FD95F5500FC3380 /* UIApplication+ZZAdd.m */,
 				549815961F628F3700DA0A9D /* MBProgressHUD+MP.h */,
@@ -1791,6 +1849,7 @@
 		C284D2342213ABDB002C4DD0 /* JDHomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				C284D294221BCF75002C4DD0 /* ZQDYWControlerView */,
 				C284D268221AA2CD002C4DD0 /* ZQControllerView */,
 				C284D2392213AC07002C4DD0 /* DRJDHomeViewController.h */,
 				C284D23A2213AC07002C4DD0 /* DRJDHomeViewController.m */,
@@ -1801,8 +1860,8 @@
 		C284D2352213ABDB002C4DD0 /* MainHomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				C284D2362213ABDB002C4DD0 /* DRHomeVC.m */,
 				C284D2372213ABDB002C4DD0 /* DRHomeVC.h */,
+				C284D2362213ABDB002C4DD0 /* DRHomeVC.m */,
 			);
 			path = MainHomeVC;
 			sourceTree = "<group>";
@@ -1928,6 +1987,33 @@
 				C284D27E221AB064002C4DD0 /* DRCookiesManager.m */,
 			);
 			path = imp;
+			sourceTree = "<group>";
+		};
+		C284D28C221B92E0002C4DD0 /* ZQView */ = {
+			isa = PBXGroup;
+			children = (
+				C284D28D221B92F8002C4DD0 /* DRZQTableViewCell.h */,
+				C284D28E221B92F8002C4DD0 /* DRZQTableViewCell.m */,
+			);
+			path = ZQView;
+			sourceTree = "<group>";
+		};
+		C284D290221B9D4D002C4DD0 /* DRHomeViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C284D291221B9D6A002C4DD0 /* DRHomeTableViewCell.h */,
+				C284D292221B9D6A002C4DD0 /* DRHomeTableViewCell.m */,
+			);
+			path = DRHomeViewCell;
+			sourceTree = "<group>";
+		};
+		C284D294221BCF75002C4DD0 /* ZQDYWControlerView */ = {
+			isa = PBXGroup;
+			children = (
+				C284D295221BCF99002C4DD0 /* DRDYWViewController.h */,
+				C284D296221BCF99002C4DD0 /* DRDYWViewController.m */,
+			);
+			path = ZQDYWControlerView;
 			sourceTree = "<group>";
 		};
 		C2B7CCCA1FDD02AC009F201C /* animationLabel */ = {
@@ -2145,6 +2231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C284D28F221B92F8002C4DD0 /* DRZQTableViewCell.m in Sources */,
 				540D22AF1EC206C700C2410E /* LGAlertViewWindowsObserver.m in Sources */,
 				54D8F3871FFA44E300B1640C /* NullSafe.m in Sources */,
 				A1F7D11A1E6900D800D3E5FF /* NSData+AES.m in Sources */,
@@ -2171,6 +2258,7 @@
 				5441B6261FDA34B500FC3380 /* DRAboutUsViewController.m in Sources */,
 				A1F560981E66608D0089114D /* HJPieView.m in Sources */,
 				547278CF1FFCD61A00C53421 /* NSDate+DRExtension.m in Sources */,
+				548B01D2221D17E4005A781B /* DRDatePicker.m in Sources */,
 				C284D288221AB064002C4DD0 /* DRCookiesManager.m in Sources */,
 				540D22AB1EC206C700C2410E /* LGAlertViewHelper.m in Sources */,
 				C284D2412213B91B002C4DD0 /* DRHomeModel.m in Sources */,
@@ -2189,6 +2277,7 @@
 				C284D25722169961002C4DD0 /* PYSearchConst.m in Sources */,
 				541481862213B1A60075B927 /* DRCollectVC.m in Sources */,
 				54A161871FFFA16D0037AD79 /* DRSallyTableViewCell.m in Sources */,
+				C284D297221BCF99002C4DD0 /* DRDYWViewController.m in Sources */,
 				5465D3181EEFDB8C00AD910B /* ZZNullView.m in Sources */,
 				54B8498A1FF612F200B39926 /* DRBaseViewController.m in Sources */,
 				540D22B01EC206C700C2410E /* UIWindow+LGAlertView.m in Sources */,
@@ -2230,6 +2319,7 @@
 				C284D287221AB064002C4DD0 /* HJAFNetWorking.m in Sources */,
 				C2B7CCCD1FDD02AC009F201C /* UICountingLabel.m in Sources */,
 				C2F10FB71FE74BD900C5D34E /* ZYSliderViewController.m in Sources */,
+				C284D293221B9D6A002C4DD0 /* DRHomeTableViewCell.m in Sources */,
 				5469B6AF1FDF7C1F00AE075A /* GroupShadowTableView.m in Sources */,
 				C284D25522169961002C4DD0 /* PYSearchViewController.m in Sources */,
 				7AC05F181EA8F2C800A2FCBD /* UIColorEX.m in Sources */,
@@ -2251,6 +2341,7 @@
 				C284D260221A4E8C002C4DD0 /* DRCollectViewController.m in Sources */,
 				540D22AD1EC206C700C2410E /* LGAlertViewWindow.m in Sources */,
 				54801F4B20A3E85200E91330 /* DRDialogueCell.m in Sources */,
+				548B01CB221D176A005A781B /* NSDate+Ex.m in Sources */,
 				546A2B8A1FEB60D200A1687B /* DRPersonalCenterModel.m in Sources */,
 				543CF015221A5B7400E60E83 /* DRCollectSheetMainView.m in Sources */,
 				54C47FE62202CA2000E7C99F /* CWTableViewCellInfo.m in Sources */,
@@ -2318,6 +2409,7 @@
 				C284D289221AB064002C4DD0 /* HJRequestDefine.m in Sources */,
 				7AD1A3E21EB8C14700C2F474 /* ZZProgressView.m in Sources */,
 				54C47FD92202C38F00E7C99F /* CWInteractiveTransition.m in Sources */,
+				548B01CC221D176A005A781B /* NSDate+Search.m in Sources */,
 				A1F7D10D1E68FFF800D3E5FF /* HJUser.m in Sources */,
 				54DDD85C1F56992600446089 /* FMDatabasePool.m in Sources */,
 				7AD1A3E51EB8C18000C2F474 /* UIView+FMKit.m in Sources */,

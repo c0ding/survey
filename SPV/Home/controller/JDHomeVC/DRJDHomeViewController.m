@@ -12,6 +12,7 @@
 #import "DRSearchViewController.h"
 #import "PYSearch.h"
 #import "DRZQListViewController.h"
+#import "DRHomeTableViewCell.h"
 @interface DRJDHomeViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,PYSearchViewControllerDelegate>
 
 @end
@@ -22,6 +23,12 @@
     
     DRBaseTableView *DRJDTable;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -33,10 +40,21 @@
 -(void) getData {
 
     
-    model = [DRJDHomeModel new];
-    [model mj_setKeyValues:[[DRMockData shareDRMockData] JDHomeMock]];
     
-    [self setTableView];
+    
+    @weakify(self)
+             
+             
+    [[request new] getHomeModel:^(DRJDHomeModel *data, RequestResult *result) {
+        model = data;
+        [self setTableView];
+    } error:^(RequestResult *result) {
+        NSLog(@"231");
+    } handleErrorCode:^(NSUInteger errorCode) {
+        NSLog(@"231");
+        
+    }];
+    
     
 }
 
@@ -45,7 +63,8 @@
     DRJDTable = [[DRBaseTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NaviHeight) style:UITableViewStyleGrouped];
     DRJDTable.delegate = self;
     DRJDTable.dataSource = self;
-    [DRJDTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"JD"];
+    [DRJDTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [DRJDTable registerClass:[DRHomeTableViewCell class] forCellReuseIdentifier:@"JD"];
     [self.view addSubview:DRJDTable];
     [self headView];
 
@@ -79,7 +98,7 @@
 {
     [textField resignFirstResponder];
     // 1.创建热门搜索
-    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
+    NSArray *hotSeaches = @[];
     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"搜索编程语言" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         // 开始搜索执行以下代码
         // 如：跳转到指定控制器
@@ -101,14 +120,18 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return model.assignmentList.count;
+    return model.data.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DRAssignmentListModel *listModel = model.assignmentList[section];
-    return listModel.timeList.count;
+    DRAssignmentListModel *listModel = model.data[section];
+    return listModel.list.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return  kHeight(52);
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -119,7 +142,7 @@
 {
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, Count(29))];
     UILabel *headTitle = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, SCREEN_WIDTH- 32, Count(29))];
-    DRAssignmentListModel *listModel = model.assignmentList[section];
+    DRAssignmentListModel *listModel = model.data[section];
     [headTitle setText:listModel.time];
     [headTitle setTextColor:getUIColor(0x26231E)];
     [headTitle setFont:[UIFont boldSystemFontOfSize:font(15)]];
@@ -139,12 +162,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DRAssignmentListModel *listModel = model.assignmentList[indexPath.section];
-    DRTimeListModel *timeModel = listModel.timeList[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JD" forIndexPath:indexPath];
-    [cell.textLabel setText:timeModel.assignmentName];
-    [cell.textLabel setTextColor:getUIColor(0x26231E)];
-    [cell.textLabel setFont:[UIFont regulerApplicationFontOfSize:font(15)]];
+    DRAssignmentListModel *listModel = model.data[indexPath.section];
+    DRTimeListModel *timeModel = listModel.list[indexPath.row];
+    DRHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JD" forIndexPath:indexPath];
+    cell.tag = indexPath.row + 1;
+    
+    cell.model = timeModel;
     
     
     return cell;

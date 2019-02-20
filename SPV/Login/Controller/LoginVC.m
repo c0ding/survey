@@ -26,7 +26,9 @@
 @end
 
 @implementation LoginVC
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self presentViewController:self.baseNav animated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +40,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserver];
+    
+    [self.loginView userName:@"18658123028" andPwd:@"000000"];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
@@ -52,6 +56,9 @@
 
 - (void)loginViewLoginBtnClickWithUserName:(NSString *)userName andPwd:(NSString *)pwd {
     
+    
+    
+    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:userName forKey:@"userName"];
     [dict setValue:pwd forKey:@"password"];
@@ -62,7 +69,11 @@
             return ;
         }
         [weakSelf presentViewController:weakSelf.baseNav animated:YES completion:nil];
-    } error:nil handleErrorCode:nil];
+    } error:^(RequestResult *result) {
+        NSLog(@"213");
+    } handleErrorCode:^(NSUInteger errorCode) {
+        NSLog(@"21322");
+    } ];
 }
 
 - (DRBaseNavigationViewController *)baseNav {

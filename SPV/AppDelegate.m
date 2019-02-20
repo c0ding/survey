@@ -108,7 +108,7 @@
     
     DRBaseNavigationViewController *baseNav = [[DRBaseNavigationViewController alloc] initWithRootViewController:homeVC];
     
-    self.window.rootViewController = baseNav;
+    self.window.rootViewController = loginVC;
     
 }
 
