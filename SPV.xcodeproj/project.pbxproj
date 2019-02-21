@@ -80,6 +80,7 @@
 		548B01CB221D176A005A781B /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01C7221D176A005A781B /* NSDate+Ex.m */; };
 		548B01CC221D176A005A781B /* NSDate+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01CA221D176A005A781B /* NSDate+Search.m */; };
 		548B01D2221D17E4005A781B /* DRDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01D1221D17E4005A781B /* DRDatePicker.m */; };
+		548B01F0221D3E99005A781B /* DRKeyboardTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B01EF221D3E99005A781B /* DRKeyboardTextView.m */; };
 		54906A522006FCCE0040254E /* CALayer+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A4E2006FCCE0040254E /* CALayer+Transition.m */; };
 		54906A532006FCCE0040254E /* XTGuidePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54906A502006FCCE0040254E /* XTGuidePagesViewController.m */; };
 		549815921F628C1F00DA0A9D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 549815911F628C1F00DA0A9D /* Reachability.m */; };
@@ -429,6 +430,8 @@
 		548B01CA221D176A005A781B /* NSDate+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Search.m"; sourceTree = "<group>"; };
 		548B01D0221D17E4005A781B /* DRDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDatePicker.h; sourceTree = "<group>"; };
 		548B01D1221D17E4005A781B /* DRDatePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDatePicker.m; sourceTree = "<group>"; };
+		548B01EE221D3E99005A781B /* DRKeyboardTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRKeyboardTextView.h; sourceTree = "<group>"; };
+		548B01EF221D3E99005A781B /* DRKeyboardTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRKeyboardTextView.m; sourceTree = "<group>"; };
 		54906A4D2006FCCE0040254E /* CALayer+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Transition.h"; sourceTree = "<group>"; };
 		54906A4E2006FCCE0040254E /* CALayer+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Transition.m"; sourceTree = "<group>"; };
 		54906A4F2006FCCE0040254E /* XTGuidePagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTGuidePagesViewController.h; sourceTree = "<group>"; };
@@ -904,6 +907,7 @@
 		541481832213B16C0075B927 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				548B01ED221D3E5E005A781B /* textView */,
 				548B01CF221D17BD005A781B /* datePick */,
 				548B01CE221D17AE005A781B /* sheet */,
 				548B01CD221D1798005A781B /* drop */,
@@ -1099,6 +1103,15 @@
 				548B01D1221D17E4005A781B /* DRDatePicker.m */,
 			);
 			path = datePick;
+			sourceTree = "<group>";
+		};
+		548B01ED221D3E5E005A781B /* textView */ = {
+			isa = PBXGroup;
+			children = (
+				548B01EE221D3E99005A781B /* DRKeyboardTextView.h */,
+				548B01EF221D3E99005A781B /* DRKeyboardTextView.m */,
+			);
+			path = textView;
 			sourceTree = "<group>";
 		};
 		54906A4B2006FCCE0040254E /* GuidePage */ = {
@@ -2047,7 +2060,6 @@
 				A1F62A6C1E65123600FB0032 /* Sources */,
 				A1F62A6D1E65123600FB0032 /* Frameworks */,
 				A1F62A6E1E65123600FB0032 /* Resources */,
-				5AD14F1AF1DAAFBF55BF7234 /* [CP] Embed Pods Frameworks */,
 				F4535C6740653A8A0258DF80 /* [CP] Copy Pods Resources */,
 				54EC49361FDA9E8F00473EC2 /* Embed Frameworks */,
 				5487A913204E8AA20043714B /* ShellScript */,
@@ -2171,21 +2183,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\n\nfi";
 		};
-		5AD14F1AF1DAAFBF55BF7234 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SPV/Pods-SPV-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E41F039220FFE2C90F8FE6F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2201,7 +2198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4535C6740653A8A0258DF80 /* [CP] Copy Pods Resources */ = {
@@ -2211,13 +2208,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SPV/Pods-SPV-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2391,6 +2388,7 @@
 				54FD39CE1F0DCDA4004BC351 /* UICKeyChainStore.m in Sources */,
 				C284D26B221AA2E0002C4DD0 /* DRZQListViewController.m in Sources */,
 				544429ED1FDFC0D9005F68BC /* DRScrollView.m in Sources */,
+				548B01F0221D3E99005A781B /* DRKeyboardTextView.m in Sources */,
 				A1F5609B1E66608D0089114D /* ZZCircleProgress.m in Sources */,
 				54DDD85B1F56992600446089 /* FMDatabaseAdditions.m in Sources */,
 				5473D22A20A2E29000A40382 /* DRIntelligentAnalysisQuestionView.m in Sources */,

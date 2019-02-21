@@ -9,12 +9,12 @@
 #import "LoginVC.h"
 #import "LoginView.h"
 
-#import "IQKeyboardReturnKeyHandler.h"
+//#import "IQKeyboardReturnKeyHandler.h"
 #import "ZYSliderViewController.h"
 #import "DRProfileHomeViewController.h"
 
 #import "CALayer+Transition.h"
-#import "IQKeyboardManager.h"
+
 #import "LHEnvManager.h"
 #import "DRHomeVC.h"
 #define kUserName @"kUserName"
@@ -27,7 +27,7 @@
 
 @implementation LoginVC
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self presentViewController:self.baseNav animated:YES completion:nil];
+//    [self presentViewController:self.baseNav animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -44,7 +44,7 @@
     [self.loginView userName:@"18658123028" andPwd:@"000000"];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
+//    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     //    self.loginView.phoneView.phoneText.text = [userDefault objectForKey:kUserPhone]?:@"";
     //    self.loginView.pwdView.userText.text = [userDefault objectForKey:kUserName]?:@"";

@@ -9,7 +9,7 @@
 
 #import "AppDelegate.h"
 #import "HJDataInterface.h"
-#import <IQKeyboardManager.h>
+
 #import "LoginVC.h"
 #import "MJExtension.h"
 
@@ -79,11 +79,11 @@
     
     
     
-    [IQKeyboardManager sharedManager].enable = YES;
-    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
-    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
-    [IQKeyboardManager sharedManager].preventShowingBottomBlankSpace = NO; //防止上滑过渡，离得太远
+//    [IQKeyboardManager sharedManager].enable = YES;
+//    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+//    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+////    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 150;//输入框到键盘的距离，默认为10
+//    [IQKeyboardManager sharedManager].preventShowingBottomBlankSpace = YES; //防止上滑过渡，离得太远
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 

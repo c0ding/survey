@@ -12,29 +12,52 @@
 #import "DRCollectCellA.h"
 #import "DRCollectSheetMainView.h"
 #import "DRDatePicker.h"
-#import "LXKeyBoard.h"
+
+#import "DRKeyboardTextView.h"
 @interface DRCollectVC ()<UITableViewDelegate ,UITableViewDataSource>
 
 @property (nonatomic ,strong)UIView *maskView;
 @property (nonatomic ,strong)DRCollectSheetMainView *collectSheetMainView;
 @property (nonatomic ,strong)DRCollectNavView *collectNavView;
 @property (nonatomic ,strong)DRDropMainView *dropMainView;
-
+@property (nonatomic ,strong)DRKeyboardTextView *keyboardTextView;
 @property (nonatomic ,strong)DRBaseTableView *tableView;
 @property (nonatomic ,strong) NSArray<NSString*>*sectionHTittles;
-@property(nonatomic,strong)LXKeyBoard *keyboard;
+
 @property (nonatomic ,strong) DRCollectGetModel *collectGetModel;
+
+
 
 
 @end
 
 @implementation DRCollectVC
 
+- (void)keyboardWillShow:(NSNotification *)info
+{
+    CGRect keyboardBounds = [[[info userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    _tableView.contentInset = UIEdgeInsetsMake(_tableView.contentInset.top, 0, keyboardBounds.size.height, 0);
+    
+    
+}
+- (void)keyboardWillHide:(NSNotification *)info
+{
+    _tableView.contentInset = UIEdgeInsetsMake(_tableView.contentInset.top, 0, 0, 0);
+    
+}
 
-
+- (void)show {
+//    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = -110;
+    [self.view bringSubviewToFront:self.keyboardTextView];
+    [self.keyboardTextView.textView becomeFirstResponder];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.keyboard];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [self.view addSubview:self.keyboardTextView];
+    
     NSDictionary *dict = [[DRMockData shareDRMockData] collectGet];
     _collectGetModel = [DRCollectGetModel mj_objectWithKeyValues: dict ];
     
@@ -76,6 +99,7 @@
     
     _tableView = ({
         DRBaseTableView *view = [[DRBaseTableView alloc] init];
+        
         view.delegate = self;
         view.dataSource = self;
         CGFloat y = CGRectGetMaxY(_collectNavView.frame);
@@ -170,7 +194,7 @@
             DRCollectCellA *cell = [[DRCollectCellA alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
             cell.leftTittle = dataModel.name;
             cell.rightTittle = dataModel.content;
-            cell.inputAccessoryView
+            
             
             return cell;
         }
@@ -224,9 +248,11 @@
 }
 
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.keyboard.textView becomeFirstResponder];
+    [self show];
     return;
     
     if (indexPath.section == 0) {
@@ -301,23 +327,16 @@
 }
 
 
--(LXKeyBoard *)keyboard{
-    if (!_keyboard) {
-        _keyboard =[[LXKeyBoard alloc]initWithFrame:CGRectZero];
-        _keyboard.backgroundColor =[UIColor whiteColor];
-        _keyboard.maxLine = 3;
-        _keyboard.font = [UIFont systemFontOfSize:font(18)];
-        _keyboard.topOrBottomEdge = 10;
-        [_keyboard beginUpdateUI];
-        
-        
-        _keyboard.sendBlock = ^(NSString *text) {
+- (DRKeyboardTextView *)keyboardTextView {
+    if (!_keyboardTextView) {
+        _keyboardTextView = [[DRKeyboardTextView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 49)];
+        _keyboardTextView.backgroundColor = [UIColor blackColor];
+        _keyboardTextView.alpha = 0.3;
+        [_keyboardTextView setPlaceholderText:@"请输入文字"];
+        _keyboardTextView.TextBlcok = ^(NSString * _Nonnull text) {
             NSLog(@"%@",text);
-//            weakSelf.resultLabel.text = text;
-//            [weakSelf.resultLabel sizeThatFits:CGSizeMake(Device_Width - 40, MAXFLOAT)];
         };
     }
-    return _keyboard;
+    return _keyboardTextView;
 }
-
 @end

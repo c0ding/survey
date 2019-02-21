@@ -8,8 +8,7 @@
  */
 
 #import "UIImage+GIF.h"
-#import <ImageIO/ImageIO.h>
-#import "objc/runtime.h"
+#import "SDWebImageGIFCoder.h"
 #import "NSImage+WebCache.h"
 
 @implementation UIImage (GIF)
@@ -18,37 +17,7 @@
     if (!data) {
         return nil;
     }
-
-    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
-
-    size_t count = CGImageSourceGetCount(source);
-
-    UIImage *staticImage;
-
-    if (count <= 1) {
-        staticImage = [[UIImage alloc] initWithData:data];
-    } else {
-        NSMutableArray *images = [NSMutableArray array];
-        
-        
-        for (size_t i = 0; i < count; i++) {
-            CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
-            
-            
-            
-            [images addObject:[UIImage imageWithCGImage:image scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
-            
-            CGImageRelease(image);
-        }
-        
-        
-        staticImage = [UIImage animatedImageWithImages:images duration:10];
-     
-    }
-
-    CFRelease(source);
-
-    return staticImage;
+    return [[SDWebImageGIFCoder sharedCoder] decodedImageWithData:data];
 }
 
 - (BOOL)isGIF {
