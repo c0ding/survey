@@ -306,55 +306,55 @@ static DRMockData *_instance;
                      @"type":@"抵押物类型",
                      @"dataList":@[
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"地址",
                                  @"param":@"param回传使用",
                                  @"type":@1,
-                                 @"content":@"s右边内容",
-                                 @"needTransform":@1,
+                                 @"content":@"绍兴市袍江工业区斗门镇新合作村横河",
+                                 @"needTransform":@0,
                                  @"select":@[],
                                  @"attachmentList":@[],
                                  },
                              
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"建筑面积",
                                  @"param":@"param回传使用",
                                  @"type":@2,
-                                 @"content":@"s右边内容",
-                                 @"needTransform":@1,
+                                 @"content":@"854.25平方米",
+                                 @"needTransform":@0,
                                  @"select":@[],
                                  @"attachmentList":@[],
                                  },
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"土地面积",
                                  @"param":@"param回传使用",
                                  @"type":@3,
-                                 @"content":@"s右边内容",
+                                 @"content":@"",
                                  @"needTransform":@1,
                                  @"select":@[],
                                  @"attachmentList":@[],
                                  },
                              
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"左边名字",
                                  @"param":@"param回传使用",
                                  @"type":@4,
-                                 @"content":@"s右边内容",
+                                 @"content":@"2002年2年2",
                                  @"needTransform":@1,
                                  @"select":@[],
                                  @"attachmentList":@[],
                                  },
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"使用年限",
                                  @"param":@"param回传使用",
                                  @"type":@5,
-                                 @"content":@"s右边内容",
+                                 @"content":@"2054年3月28日",
                                  @"needTransform":@1,
                                  @"select":@[],
                                  @"attachmentList":@[ ],
                                  
                                  },
                              @{
-                                 @"name":@"左边名字名字1",
+                                 @"name":@"使用状态",
                                  @"param":@"param回传使用",
                                  @"type":@6,
                                  @"content":@"123",
@@ -370,31 +370,22 @@ static DRMockData *_instance;
                                              },
                                          @{
                                              @"key":@"125",
-                                             @"value":@"商铺1"
+                                             @"value":@"商铺2"
                                              },
                                          @{
                                              @"key":@"126",
-                                             @"value":@"商铺1"
+                                             @"value":@"商铺3"
                                              },
                                          @{
                                              @"key":@"127",
-                                             @"value":@"商铺1"
+                                             @"value":@"商铺4"
                                              },
                                          @{
                                              @"key":@"128",
-                                             @"value":@"商铺1"
-                                             },
-                                         
-                                         
-                                         
-                                         ],
-                                 @"attachmentList":@[
-                                         @{
-                                             @"name":@"",
-                                             @"url":@"",
+                                             @"value":@"商铺5"
                                              },
                                          ],
-                                 
+                                 @"attachmentList":@[],
                                  },
                              
                              @{
@@ -409,7 +400,7 @@ static DRMockData *_instance;
                                  },
                              
                              @{
-                                 @"name":@"左边名字左边名字名字",
+                                 @"name":@"附件",
                                  @"param":@"param回传使用",
                                  @"type":@8,
                                  @"content":@"s右边内容",
@@ -417,11 +408,18 @@ static DRMockData *_instance;
                                  @"select":@[],
                                  @"attachmentList":@[
                                          @{
-                                             @"name":@"",
-                                             @"url":@"",
+                                             @"name":@"评估报告评估报告",
+                                             @"url":@"111111",
+                                             },
+                                         @{
+                                             @"name":@"项目报告",
+                                             @"url":@"222222",
+                                             },
+                                         @{
+                                             @"name":@"产品报告",
+                                             @"url":@"333333",
                                              },
                                          ],
-                                 
                                  },
                              
                             
