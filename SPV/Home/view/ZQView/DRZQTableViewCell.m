@@ -132,14 +132,14 @@
 -(void)setModel:(DRZQListDetailModel *)model
 {
     [numberLabel setText:[NSString stringWithFormat:@"%02ld",self.tag]];
-    [nameLabel setText:model.name];
-    [scheduleDec setText:[NSString stringWithFormat:@"尽调进度：%.0f/%.0f", model.currentCount,model.amoutCount]];
+    [nameLabel setText:model.obligatoryRightName];
+    [scheduleDec setText:[NSString stringWithFormat:@"尽调进度：%.0f/%.0f", model.numerator,model.denominator]];
     
     [currentCountView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.offset(kHeight((model.amoutCount == 0 ? 0 : ( model.currentCount / model.amoutCount * 250))));
+        make.width.offset(kHeight((model.denominator == 0 ? 0 : ( model.numerator / model.denominator * 250))));
     }];
     
-    [lookReport setHidden:model.amoutCount == 0 ? YES : NO];
+    [lookReport setHidden:model.denominator == 0 ? YES : NO];
 }
 
 

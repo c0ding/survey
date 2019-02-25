@@ -14,7 +14,7 @@
 
 +(NSDictionary *)mj_objectClassInArray {
     return @{
-             @"ZQList":[DRZQListDetailModel class]
+             @"list":[DRZQListDetailModel class]
              };
 }
 

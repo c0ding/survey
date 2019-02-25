@@ -70,7 +70,7 @@
 {
     NSArray *array = [[DRMockData shareDRMockData] numberCircle];
     [numberLabel setText:array[self.tag - 1]];
-    [nameLabel setText:model.name];
+    [nameLabel setText:model.assetPackageName];
     
 }
 

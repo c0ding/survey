@@ -10,6 +10,7 @@
 #import "DRMockData.h"
 #import "DRCollectModel.h"
 #import "DRCollectTableViewCell.h"
+#import "DRReportViewController.h"
 @interface DRDYWViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -22,17 +23,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitleView:@"福建建行债权包" color:YES];
+    [self setTitleView:_obligatoryRightName color:YES];
+    [self createTable];
     [self getData];
 }
 
 -(void)getData
 {
-    model = [DRCollectModel new];
-    [model mj_setKeyValues:[[DRMockData shareDRMockData] MyCollectMock]];
-    [self createTable];
+   
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:_obligatoryRightId forKey:@"obligatoryRightId"];
     
-
+    [[request new] getDYWModel:params net:^(DRCollectModel *data, RequestResult *result) {
+        model = data;
+        [DYWTable reloadData];
+    } error:^(RequestResult *result) {
+        
+    } handleErrorCode:^(NSUInteger errorCode) {
+        
+    }];
+    
+    
+        
+    
 }
 
 -(void)createTable
@@ -89,7 +102,10 @@
 
 -(void)btnLookClick
 {
-    
+    DRReportViewController *report = [[DRReportViewController alloc] init];
+    report.modelCollect = model;
+    report.obligatoryRightId = _obligatoryRightId;
+    [self.navigationController pushViewController:report animated:YES];
 }
 
 -(void)tableViewHeadCreate
@@ -104,7 +120,7 @@
         make.centerY.equalTo(headView.mas_centerY);
         make.height.offset(kHeight(21));
     }];
-    [titleLabel setText:[NSString stringWithFormat:@"关注的任务(%ld)",model.collectList.count]];
+    [titleLabel setText:[NSString stringWithFormat:@"抵押物(%ld)",model.size]];
     [titleLabel setFont:[UIFont boldSystemFontOfSize:font(15)]];
     [titleLabel setTextColor:getUIColor(0x26231E)];
     
@@ -120,14 +136,15 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return model.collectList.count;
+    return model.size;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DRCollectListModel *modelIndex = model.collectList[indexPath.row];
+    DRCollectListModel *modelIndex = model.list[indexPath.row];
     
     DRCollectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collection" forIndexPath:indexPath];
+    cell.collectVC = NO;
     cell.model = modelIndex;
     return cell;
 }
@@ -138,6 +155,38 @@
     
     
     
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    DRCollectListModel *modelIndex = model.list[indexPath.row];
+    
+    return modelIndex.attention == 1 ? @"关注":@"取消关注";
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    DRCollectListModel *modelIndex = model.list[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:modelIndex.guaranteeId forKey:@"guaranteeId"];
+        
+        [[request new] attentionClick:params net:^(id data, RequestResult *result) {
+            
+            [self getData];
+            
+        } error:^(RequestResult *result) {
+            
+        } handleErrorCode:^(NSUInteger errorCode) {
+            
+        }];
+        
+    }
 }
 
 @end

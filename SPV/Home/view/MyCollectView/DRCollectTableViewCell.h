@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DRCollectTableViewCell : UITableViewCell
 
+@property (nonatomic, assign) BOOL collectVC;
+
 @property (nonatomic, strong) DRCollectListModel *model;
 
 @end

@@ -13,7 +13,7 @@
 
 +(NSDictionary *)mj_objectClassInArray {
     return @{
-             @"assignmentList":[DRAssignmentListModel class]
+             @"data":[DRAssignmentListModel class]
              };
 }
 
@@ -25,7 +25,7 @@
 
 +(NSDictionary *)mj_objectClassInArray {
     return @{
-             @"timeList":[DRTimeListModel class]
+             @"list":[DRTimeListModel class]
              };
 }
 

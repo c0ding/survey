@@ -28,9 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface DRTimeListModel : NSObject
-@property (nonatomic, strong)NSString *assignId;
+@property (nonatomic, strong)NSString *assetPackageId;
 
-@property (nonatomic, strong)NSString *name;
+@property (nonatomic, strong)NSString *assetPackageName;
 
 @end
 

@@ -12,7 +12,7 @@
 
 +(NSDictionary *)mj_objectClassInArray {
     return @{
-             @"collectList":[DRCollectListModel class]
+             @"list":[DRCollectListModel class]
              };
 }
 

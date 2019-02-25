@@ -19,6 +19,21 @@
     DRCollectModel *model;
     DRBaseTableView *collectTable;
 }
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[request new] getCollectModel:^(DRCollectModel *data, RequestResult *result) {
+        model = data;
+        [collectTable reloadData];
+    } error:^(RequestResult *result) {
+        
+    } handleErrorCode:^(NSUInteger errorCode) {
+        
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -27,10 +42,20 @@
 
 -(void)getData
 {
-    model = [DRCollectModel new];
-    [model mj_setKeyValues:[[DRMockData shareDRMockData] MyCollectMock]];
-    [self createTable];
+   
     
+    @weakify(self)
+    
+    
+    [[request new] getCollectModel:^(DRCollectModel *data, RequestResult *result) {
+        model = data;
+        [self createTable];
+    } error:^(RequestResult *result) {
+        
+    } handleErrorCode:^(NSUInteger errorCode) {
+        
+        
+    }];
 }
 
 -(void)createTable
@@ -59,7 +84,7 @@
         make.centerY.equalTo(headView.mas_centerY);
         make.height.offset(kHeight(21));
     }];
-    [titleLabel setText:[NSString stringWithFormat:@"关注的任务(%ld)",model.collectList.count]];
+    [titleLabel setText:[NSString stringWithFormat:@"关注的任务(%ld)",model.size]];
     [titleLabel setFont:[UIFont boldSystemFontOfSize:font(15)]];
     [titleLabel setTextColor:getUIColor(0x26231E)];
     
@@ -75,14 +100,15 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return model.collectList.count;
+    return model.size;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DRCollectListModel *modelIndex = model.collectList[indexPath.row];
+    DRCollectListModel *modelIndex = model.list[indexPath.row];
     
     DRCollectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collection" forIndexPath:indexPath];
+    cell.collectVC = YES;
     cell.model = modelIndex;
     return cell;
 }
@@ -93,6 +119,38 @@
     
     
     
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
+    return @"取消关注";
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    DRCollectListModel *modelIndex = model.list[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:modelIndex.guaranteeId forKey:@"guaranteeId"];
+        
+        [[request new] attentionClick:params net:^(id data, RequestResult *result) {
+            
+            [self getData];
+            
+        } error:^(RequestResult *result) {
+            
+        } handleErrorCode:^(NSUInteger errorCode) {
+            
+        }];
+        
+    }
 }
 
 

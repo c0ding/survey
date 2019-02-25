@@ -12,7 +12,11 @@
 #import "LoginVC.h"
 #import "DRJDHomeViewController.h"
 #import "DRCollectViewController.h"
+
 #import "DRCollectVC.h"
+
+#import "DRScroller.h"
+
 @interface DRHomeVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) DRProfileHomeViewController *profileHomeVC;
 @property (nonatomic,strong) LoginVC *loginVC;
@@ -100,7 +104,7 @@
     [self addChildViewController:JDCollect];
     
     
-    tabScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    tabScroller = [[DRScroller alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [tabScroller setContentSize:CGSizeMake(2 * SCREEN_WIDTH, 0)];
     [tabScroller setPagingEnabled:YES];
     tabScroller.delegate = self;
@@ -127,6 +131,19 @@
     [tabScroller addSubview:JDCollect.view];
 }
 
+#pragma mark - ScrollView delegate
+
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x > SCREEN_WIDTH || scrollView.contentOffset.x < 0) {
+        scrollView.scrollEnabled = NO;
+    } else {
+        scrollView.scrollEnabled = YES;
+    }
+}
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
@@ -143,6 +160,8 @@
         [selectBtn setTitleColor:getUIColor(0xF2A949) forState:UIControlStateNormal];
     }
 }
+
+
 
 #pragma mark === 登出提示
 - (void)logoutAlert {

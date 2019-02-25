@@ -24,10 +24,6 @@
     DRBaseTableView *DRJDTable;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self getData];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,9 +45,9 @@
         model = data;
         [self setTableView];
     } error:^(RequestResult *result) {
-        NSLog(@"231");
+        
     } handleErrorCode:^(NSUInteger errorCode) {
-        NSLog(@"231");
+        
         
     }];
     
@@ -176,8 +172,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DRAssignmentListModel *listModel = model.data[indexPath.section];
+    DRTimeListModel *timeModel = listModel.list[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DRZQListViewController *ZQController = [[DRZQListViewController alloc] init];
+    ZQController.assetPackageId = timeModel.assetPackageId;
+    ZQController.assetPackageName = timeModel.assetPackageName;
     [self.navigationController pushViewController:ZQController animated:YES];
 }
 

@@ -36,6 +36,7 @@
 ///时间戳转换为时间月日
 + (NSString *)timeWithTimeIntervalStringHaveMMdd:(long long )timeString;
 
++ (NSString *)timeWithTimeIntervalStringHaveYYYYMMddTypeTwo:(long long )timeString;
 ///时间戳转换为时间年月日
 + (NSString *)timeWithTimeIntervalStringHaveYYYYMMdd:(long long )timeString;
 

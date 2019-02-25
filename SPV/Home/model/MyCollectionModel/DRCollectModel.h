@@ -12,25 +12,30 @@ NS_ASSUME_NONNULL_BEGIN
 @class DRCollectListModel;
 @interface DRCollectModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray<DRCollectListModel*> *collectList;
+@property (nonatomic, strong) NSString *obligatoryRightName;
+@property (nonatomic, strong) NSString *obligatoryRightId;
+@property (nonatomic, assign) NSInteger size;
+@property (nonatomic, strong) NSMutableArray<DRCollectListModel*> *list;
 
 
 @end
 
 /**
  @"time":@"2018/5/25",
- @"name":@"浙江岱山县岱西仇家门",
+ @"obligatoryRightName":@"浙江岱山县岱西仇家门",
  @"projectType":@1,
  @"type":@"工业",
  @"ifCollect":@1
  **/
 @interface DRCollectListModel : NSObject
-
+@property (nonatomic, strong) NSString *guaranteeId;
 @property (nonatomic, strong) NSString *time;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) NSInteger projectType;
+@property (nonatomic, strong) NSString *timeStatus;
+@property (nonatomic, strong) NSString *guaranteeName;
+@property (nonatomic, assign) NSInteger inspectStatus;
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, assign) NSInteger ifCollect;
+@property (nonatomic, assign) NSInteger attention;
+
 
 
 @end

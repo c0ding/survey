@@ -14,6 +14,9 @@
 #import "DRUpdateVersionModel.h"
 #import "DRCollectGetModel.h"
 #import "DRJDHomeModel.h"
+#import "DRZQListModel.h"
+#import "DRCollectModel.h"
+#import "DRReportModel.h"
 typedef void(^dataResponse)(id data,RequestResult *result);
 typedef void(^localResponse)(id data);
 typedef void(^errorResponse)(RequestResult *result);
@@ -29,4 +32,9 @@ typedef void(^handleErrorCodeReponse)(NSUInteger errorCode);
 
 
 - (void)getHomeModel:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+- (void)getCollectModel:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+-(void) getZQModel:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+-(void) getDYWModel:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+- (void)attentionClick:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
+-(void) getReportModel:(NSMutableDictionary *)params net:(dataResponse)net error:(errorResponse) error handleErrorCode:(handleErrorCodeReponse)errorCode;
 @end

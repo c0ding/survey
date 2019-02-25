@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [self setTitleView:@"福建建行债权包" color:YES];
+    [self setTitleView:_assetPackageName color:YES];
     [self getData];
    
     // Do any additional setup after loading the view.
@@ -35,9 +35,24 @@
 
 
 -(void)getData {
-    model = [DRZQListModel new];
-    [model mj_setKeyValues:[[DRMockData shareDRMockData] ZQListMock]];
+   
+   
     [self createTableView];
+    
+    
+    @weakify(self)
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:_assetPackageId forKey:@"assetPackageId"];
+    [[request new] getZQModel:params net:^(id data, RequestResult *result) {
+        model = data;
+        [ZQListTable reloadData];
+        
+    } error:^(RequestResult *result) {
+        
+    } handleErrorCode:^(NSUInteger errorCode) {
+        
+    }];
 }
 
 
@@ -64,7 +79,7 @@
         make.centerY.equalTo(headView.mas_centerY);
         make.height.offset(kHeight(21));
     }];
-    [titleLabel setText:[NSString stringWithFormat:@"债权(%ld)",model.ZQList.count]];
+    [titleLabel setText:[NSString stringWithFormat:@"债权(%ld)",model.size]];
     [titleLabel setFont:[UIFont boldSystemFontOfSize:font(15)]];
     [titleLabel setTextColor:getUIColor(0x26231E)];
     
@@ -74,7 +89,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return model.ZQList.count;
+    return model.list.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,7 +99,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DRZQListDetailModel *modelList = model.ZQList[indexPath.row];
+    DRZQListDetailModel *modelList = model.list[indexPath.row];
     DRZQTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZQ" forIndexPath:indexPath];
     cell.tag = indexPath.row + 1;
     cell.model= modelList;
@@ -95,8 +110,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+     DRZQListDetailModel *modelList = model.list[indexPath.row];
     DRDYWViewController *DYWVC = [[DRDYWViewController alloc] init];
+    DYWVC.obligatoryRightId = modelList.obligatoryRightId;
+    DYWVC.obligatoryRightName = modelList.obligatoryRightName;
     [self.navigationController pushViewController:DYWVC animated:YES];
 }
 

@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DRZQListViewController : DRBaseViewController
-
+@property (nonatomic, strong) NSString *assetPackageId;
+@property (nonatomic, strong) NSString *assetPackageName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,24 +9,29 @@
 #import <Foundation/Foundation.h>
 @class DRZQListDetailModel;
 NS_ASSUME_NONNULL_BEGIN
-/**
- @"name":@"浙江岱山县岱西仇家门",
- @"amoutCount":@5,
- @"currentCount":@1,
- **/
+
 @interface DRZQListModel : NSObject
 
+@property (nonatomic, strong) NSString *assetPackageName;
+@property (nonatomic, assign) NSInteger size;
 
-@property (nonatomic, strong) NSMutableArray<DRZQListDetailModel*> *ZQList;
+@property (nonatomic, strong) NSMutableArray<DRZQListDetailModel*> *list;
 
 @end
 
-
+/**
+ 
+ numerator    分子-尽调进度
+ denominator    分母-尽调进度
+ obligatoryRightName    债权名
+ obligatoryRightId    债权id
+ **/
 
 @interface DRZQListDetailModel : NSObject
-@property (nonatomic ,strong) NSString *name;
-@property (nonatomic, assign) CGFloat amoutCount;
-@property (nonatomic, assign) CGFloat currentCount;
+@property (nonatomic, strong) NSString *obligatoryRightId;
+@property (nonatomic ,strong) NSString *obligatoryRightName;
+@property (nonatomic, assign) CGFloat denominator;
+@property (nonatomic, assign) CGFloat numerator;
 
 @end
 NS_ASSUME_NONNULL_END

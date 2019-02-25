@@ -26,6 +26,7 @@
     UILabel *projectTypeLabel;
     UILabel *typeLabel;
     UILabel *ifCollectLabel;
+    UIImageView *collectImg;
     
 }
 
@@ -106,6 +107,18 @@
     }];
     [ifCollectLabel setFont:[UIFont regulerApplicationFontOfSize:font(13)]];
     [ifCollectLabel setTextColor:getUIColor(0xE5E5E5)];
+    [ifCollectLabel setText:@"已关注"];
+   
+    
+    collectImg = [UIImageView new];
+    [contentView addSubview:collectImg];
+    [collectImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(ifCollectLabel.mas_left).offset(-kWidth(4));
+        make.bottom.offset(- kHeight(17));
+        make.height.offset(16);
+        make.width.offset(16);
+    }];
+    [collectImg setImage:[UIImage imageNamed:@"haveCollect"]];
     
     
     UIView *lineView = [UIView new];
@@ -125,19 +138,26 @@
 
 -(void) setModel:(DRCollectListModel *)model
 {
-    [nameLabel setText:model.name];
-    [projectTypeLabel setText: [[self projectInfo:model.projectType] objectForKey:@"name"]];
-    [projectTypeLabel setBackgroundColor:[[self projectInfo:model.projectType] objectForKey:@"BGColor"]];
-    [projectTypeLabel setTextColor:[[self projectInfo:model.projectType] objectForKey:@"textColor"]];
+    
+    [nameLabel setText:model.guaranteeName];
+    [projectTypeLabel setText: [[self projectInfo:model.inspectStatus] objectForKey:@"name"]];
+    [projectTypeLabel setBackgroundColor:[[self projectInfo:model.inspectStatus] objectForKey:@"BGColor"]];
+    [projectTypeLabel setTextColor:[[self projectInfo:model.inspectStatus] objectForKey:@"textColor"]];
     
     [typeLabel setText:[NSString stringWithFormat:@" %@ ",model.type]];
     
-    [timeLabel setText:model.time];
+    [timeLabel setText:[NSString stringWithFormat:@"%@：%@", (model.timeStatus == 0 ? @"创建时间":@"修改时间"), [NSString timeWithTimeIntervalStringHaveYYYYMMddTypeTwo:[model.time longLongValue]]]];
     
-    [ifCollectLabel setText:model.ifCollect == 0 ? @"":@"已关注"];
+    if (!_collectVC) {
+        [ifCollectLabel setHidden:model.attention ? YES : NO];
+        [collectImg setHidden:model.attention ? YES : NO];
+    } else {
+        [ifCollectLabel setHidden:NO];
+        [collectImg setHidden: NO];
+    }
+    
     
 }
-
 
 
 -(NSMutableDictionary *)projectInfo :(NSInteger)sender
@@ -145,17 +165,18 @@
     NSMutableDictionary *dic =[NSMutableDictionary dictionary];
     
     switch (sender) {
-        case 0:
-            [dic setObject:@" 无需尽调 " forKey:@"name"];
-            [dic setObject:getUIColor(0xF2D9B6) forKey:@"BGColor"];
-            [dic setObject:getUIColor(0x26231E) forKey:@"textColor"];
-            break;
         case 1:
             [dic setObject:@" 待尽调 " forKey:@"name"];
             [dic setObject:getUIColor(0xB6CFF2) forKey:@"BGColor"];
             [dic setObject:getUIColor(0x26231E) forKey:@"textColor"];
             break;
         case 2:
+            [dic setObject:@" 无需尽调 " forKey:@"name"];
+            [dic setObject:getUIColor(0xF2D9B6) forKey:@"BGColor"];
+            [dic setObject:getUIColor(0x26231E) forKey:@"textColor"];
+            break;
+        
+        case 3:
             [dic setObject:@" 已尽调 " forKey:@"name"];
             [dic setObject:getUIColor(0xF2D9B6) forKey:@"BGColor"];
             [dic setObject:getUIColor(0x26231E) forKey:@"textColor"];
@@ -166,6 +187,7 @@
     return dic;
     
 }
+
 
 
 
