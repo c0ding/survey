@@ -322,12 +322,15 @@
                 
             case 1:{
                 [self show];
+                break;
             }
             case 2:{
                 [self show];
+                break;
             }
             case 3:{
                 [self show];
+                break;
             }
             case 4:{
                 DRDatePicker* datePicker= [[DRDatePicker alloc]initWithFrame:self.view.frame];
@@ -336,6 +339,7 @@
                     NSLog(@"%@",date);
                 };
                 [datePicker show];
+                break;
             }
 
             case 5:{
