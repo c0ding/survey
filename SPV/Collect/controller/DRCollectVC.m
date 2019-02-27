@@ -292,6 +292,11 @@
                 return cell;
                 break;
             }
+                
+            case 9: {
+                // 备注行
+                break;
+            }
         }
         
         
